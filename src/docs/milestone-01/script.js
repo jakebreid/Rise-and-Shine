@@ -8,8 +8,8 @@ function wordHighlighter() {
     let new_HTML = "";
     let index = -1;
     
-    for(let i = 0; i < all_items.length();; i++){
-        current_item = all_items.item(x); //Get current section
+    for(let i = 0; i < all_items.length(); i++){
+        current_item = all_items.item(i); //Get current section
         current_HTML = current_item.innerHTML; //Get HTML of current section
         index = current_HTML.toLowercase().indexOf(word1.toLowercase());
         while(index !== -1){ //while index of input is found
