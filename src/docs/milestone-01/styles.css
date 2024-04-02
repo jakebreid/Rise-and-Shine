@@ -21,7 +21,8 @@ h4
 }
 .highlight
 {
-    background-color:yellow;
+    background-color:rgb(202, 202, 65);
+    color: black;
 }
 #overview { 
     border: 1px solid; 
