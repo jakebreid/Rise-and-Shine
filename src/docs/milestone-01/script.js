@@ -1,14 +1,14 @@
 function wordHighlighter() {
     let word1 = document.getElementById('keyword').value;
     let all_items = document.getElementsByTagName("section");
-    let x = all_items.length();
+    //let x = all_items.length();
     let current_item = all_items.item(0);
     
     let current_HTML = "";
     let new_HTML = "";
     let index = -1;
     
-    for(let i = 0; i < x; i++){
+    for(let i = 0; i < all_items.length();; i++){
         current_item = all_items.item(x); //Get current section
         current_HTML = current_item.innerHTML; //Get HTML of current section
         index = current_HTML.toLowercase().indexOf(word1.toLowercase());
