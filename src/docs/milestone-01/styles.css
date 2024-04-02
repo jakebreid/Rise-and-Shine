@@ -50,6 +50,24 @@ h4
     color: white;
     /* targeting an element by its id  */
 }
+#application-parts {
+    border: 1px solid; 
+    padding: 10px; 
+    margin: 10px; 
+    font-size: 18px; 
+}
+#wire-frames {
+    border: 1px solid; 
+    padding: 10px; 
+    margin: 10px; 
+    font-size: 18px; 
+}
+#integrative-experience {
+    border: 1px solid; 
+    padding: 10px; 
+    margin: 10px; 
+    font-size: 18px; 
+}
 /* nav a { 
     figure out a way to style the links so that they look diff when theyre under <nav>
     but, nothing is under <nav> so idk
@@ -62,3 +80,38 @@ h3:hover{
     background-color: pink;
     /* on hover, underlines text and adds a pink background to all h3 elements */
 } 
+.quickNav {
+    width: 200px;
+    background-color: #8B7355;
+    color: white;
+    border: 1px solid; 
+    padding: 10px; 
+    margin: 10px; 
+}
+.quickNav a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+}
+.quickNav a:hover {
+    background-color: black;
+    color: white;
+}
+img {
+    border-radius: 12%;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(2, 500px);
+    grid-gap: 20px 40px;
+    margin: 0 auto;
+    width: fit-content;
+}
+.grid-item {
+    width: 520px;
+    height: 520px;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 10%;
+}
