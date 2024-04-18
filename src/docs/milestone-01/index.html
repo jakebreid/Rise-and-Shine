@@ -14,49 +14,68 @@
         <!-- Links to different sections/pages -->
     </nav>
     <header id = "vision">
-        <h1>Rise and Shine - The Perfect Way to Start Your Day!</h1>
+        <center>
+            <h1>Rise and Shine - The Perfect Way to Start Your Day!</h1>
+        </center>
     </header>
     <h2>Quick Navigate:</h2>
-    <a href = "#team">Team Members</a> <br>
-    <a href = "#overview">Overview</a> <br>
-    <a href = "#application-parts">Applications</a> <br>
-    <a href = "#data-requirements">Data Requirements</a> <br>
-    <a href = "#wire-frames">Wire Frames</a> <br>
-    <a href = "#real-world">Real World Connections</a> <br>
-    <a href = "#integrative-experience">Integrative Experience</a> <br>
+    <div class="quickNav">
+        <a href = "#team">Team Members</a> <br/>
+        <a href = "#overview">Overview</a> <br/>
+        <a href = "#application-parts">Applications</a> <br/>
+        <a href = "#data-requirements">Data Requirements</a> <br/>
+        <a href = "#wire-frames">Wire Frames</a> <br/>
+        <a href = "#real-world">Real World Connections</a> <br/>
+        <a href = "#integrative-experience">Integrative Experience</a> <br/>
+    </div>
     
+    
+    <br/> <br/>
+    <label for="keyword">Keyword Search: </label>
+    <input type="text" id="keyword"/>
+    <input type="button" id="button" value="Search"/>
+
 
     <main>
         <!-- Main content of the document -->
         <article>
             <section id = "team"> 
-                <h2>Team</h2>
-                <h3>Jake Reid</h3>
-                <h4>Role: Project Manager</h4>
-                <img src = "jake.JPG" alt = "jake reid" style="width: 220px;height: 260px;">
-                <label><br>Jake Reid is a sophomore Computer Science major with a business minor from East Longmeadow, MA. <br>
-                    His expertise lies in back-end programming and data analysis. Jake leads the team of "Rise and Shine!". 
-                </label>
-                <h3>Robert Kane</h3>
-                <h4>Role: Back-End programming</h4>
-                <img src = "robert.png" alt = "robert" style="width: 300px;height: 260px;">
-                <label><br>Robert Kane is a sophomore Computer Science major with a buisness minor from East Longmeadow, MA. <br>
-                His expertise lies in back-end programming.</label>
-                <h3>Lindsey Blau</h3>
-                <h4>Role: Front-end programming</h4>
-                <img src = "lindsey.jpeg" alt = "lindsey" style="width: 260px;height: 260px;">
-                <label><br>Lindsey Blau is a sophomore Informatics major with an Art History minor from Portsmouth, OH. <br>
-                Her expertise lies in front end programming and data science. </label>
-                <h3>Daniel Friedman</h3>
-                <h4>Role: Documentation Lead</h4>
-                <img src = "dan.jpg" alt = "dan" style="width: 220px;height: 320px;">
-                <label><br>Dan is a sophomore Computer Science major from Maynard, MA. 
-                <br> Dan's expertise lies in his flexibility and his ability to remain organized and document team progress.</label>
-        
+                <h2>Team:</h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3>Jake Reid</h3>
+                        <h4>Role: Project Manager</h4>
+                        <img src = "jake.JPG" alt = "jake reid" style="width: 220px;height: 260px;"> <br>
+                        <label><br>Jake Reid is a sophomore Computer Science major with a business minor from East Longmeadow, MA. <br>
+                            His expertise lies in back-end programming and data analysis. Jake leads the team of "Rise and Shine!". 
+                        </label>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Robert Kane</h3>
+                        <h4>Role: Back-End programming</h4>
+                        <img src = "robert.png" alt = "robert" style="width: 300px;height: 260px;">  <br>
+                        <label><br>Robert Kane is a sophomore Computer Science major with a buisness minor from East Longmeadow, MA. <br>
+                        His expertise lies in back-end programming.</label>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Lindsey Blau</h3>
+                        <h4>Role: Front-end programming</h4>
+                        <img src = "lindsey.jpeg" alt = "lindsey" style="width: 260px;height: 260px;">  <br>
+                        <label><br>Lindsey Blau is a sophomore Informatics major with an Art History minor from Portsmouth, OH. <br>
+                        Her expertise lies in front end programming and data science. </label>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Daniel Friedman</h3>
+                        <h4>Role: Documentation Lead</h4>
+                        <img src = "dan.jpg" alt = "dan" style="width: 220px;height: 320px;">  <br>
+                        <label><br>Daniel Friedman is a sophomore Computer Science and History double major from Maynard, MA. 
+                       <br> His expertise lies in his flexibility and ability to remain organized while documenting team progress.</label>
+                    </div>
+                </div>
             </section>
             <br><h2>Overview: Rise and Shine!</h2>
-           <section id = "overview">
-            We are developing a highly personalized website that will serve as a morning organizer and day-starter, called Rise and Shine.
+            <section id = "overview">
+             We are developing a highly personalized application that will serve as a morning organizer and day-starter, called Rise and Shine.
              Rise and Shine is a creative web application that prioritizes organization and productivity by combining multiple everyday morning routine activities, 
              such as to-do lists, Google Calendar integration, rising news stories, and suggested activities. 
             Think of Rise and Shine as your personal assistant to start your day off on the right foot. By encapsulating critical personalized information in one 
@@ -97,8 +116,18 @@
            
            <br><h2>Wire Frames</h2>
            <section id = "wire-frames">
+            <h3>Main Page</h3>
             <img src = "ui.jpg" alt = "ui" style="width: 325px;height: 300px;">
-            <br>The framework of Rise and Shine has been designed to feature all of the information offered by our website in a grid-like format. Above all of the information provided to the user is a string accessing the information provided in the User Profile such as their name to present a “Good Morning [User’s Name]” message. Under that in our first row is weather data and three featured news stories, under which is a preview to your calendar, frequently played spotify songs, if your spotify account is linked, and daily free games such as Wordle and the mini-crossword. Each of these boxes are simply previews, of which the user can click on any one to access more information.
+            <br>The framework of Rise and Shine has been designed to feature all of the information offered by our website in a grid-like format. Above all of the information provided to the user is a string accessing the information provided in the User Profile such as their name to present a “Good Morning [User's Name]” message. Under that in our first row is weather data and three featured news stories, under which is a preview to your calendar, frequently played spotify songs, if your spotify account is linked, and daily free games such as Wordle and the mini-crossword. Each of these boxes are simply previews, of which the user can click on any one to access more information.
+            <br> <h3>Weather Page</h3>
+            <br> <img src = "ui2.jpg" alt = "ui" style="width: 325px;height: 300px;">
+            <br> The framework of the weather page would feature the location of the weather showcased in the top left corner, with the current temperature in the top center of the page, featuring an hourly forecast to the left and other important weather information such as wind speed, “feels like” temperatures, the current AV index and precipitation levels.
+            <br> <h3>Calendar</h3>
+            <br> <img src = "ui2.jpg" alt = "ui" style="width: 325px;height: 300px;">
+            <br> Full page has a much larger view of the schedule for that day, with organized lines going down hourly from 12 am to 11 pm, and all events scheduled are featured within boxes with information that can be added like the location.
+            <br> <h3>News</h3>
+            <br> <img src = "ui3.jpg" alt = "ui" style="width: 325px;height: 300px;">
+            <br> The larger news page view features more stories, with a featured top story, headlines and little pieces of the beginning of the article filling the space below the headline of each news story.
            </section>
           
             <br><h2>Real World Connection</h2>
