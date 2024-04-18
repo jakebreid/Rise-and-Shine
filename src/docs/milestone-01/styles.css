@@ -2,11 +2,12 @@ h1
 {
     font-size: 24px; 
     color:black;
-}
-h2 
-{
-    font-size: 20px;
-    color:brown; 
+} 
+h2{
+    font-size: 20px; 
+    color: red; 
+    font-style: italic;
+    /* styles all headers italic; targets by class */
 }
 h3
 {
@@ -23,17 +24,37 @@ h4
     padding: 10px; 
     margin: 10px; 
     font-size: 18px; 
-    color: blueviolet; 
-    /* aming to get a colored(i chose blueviolet but can change color idk) text box that says overview  */
-    /* this will go beyond the simple styling for headers  */
-}
-#team{ 
+    background-color: #8B7355; 
+    color: white;
+    /* targeting an element by its id  */
+} 
+#data-requirements{
     border: 1px solid; 
     padding: 10px; 
     margin: 10px; 
     font-size: 18px; 
-    color: blueviolet; 
-    /* aming to get a colored(i chose blueviolet but can change color idk) text box that says team  */
-    /* this will go beyond the simple styling for headers  */
+    background-color: #8B7355; 
+    color: white;
+    /* targeting an element by its id  */   
 }
-
+#real-world{
+    border: 1px solid; 
+    padding: 10px; 
+    margin: 10px; 
+    font-size: 18px; 
+    background-color: #8B7355; 
+    color: white;
+    /* targeting an element by its id  */
+}
+/* nav a { 
+    figure out a way to style the links so that they look diff when theyre under <nav>
+    but, nothing is under <nav> so idk
+} */
+h3:hover{ 
+    text-decoration: underline;
+    border: 1px solid; 
+    padding: 3px; 
+    margin: 3px;  
+    background-color: pink;
+    /* on hover, underlines text and adds a pink background to all h3 elements */
+} 
