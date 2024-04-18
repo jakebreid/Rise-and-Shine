@@ -18,3 +18,22 @@ h4
     font-size: 16px;
     color:darkgreen;
 }
+#overview { 
+    border: 1px solid; 
+    padding: 10px; 
+    margin: 10px; 
+    font-size: 18px; 
+    color: blueviolet; 
+    /* aming to get a colored(i chose blueviolet but can change color idk) text box that says overview  */
+    /* this will go beyond the simple styling for headers  */
+}
+#team{ 
+    border: 1px solid; 
+    padding: 10px; 
+    margin: 10px; 
+    font-size: 18px; 
+    color: blueviolet; 
+    /* aming to get a colored(i chose blueviolet but can change color idk) text box that says team  */
+    /* this will go beyond the simple styling for headers  */
+}
+
