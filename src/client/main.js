@@ -3,9 +3,9 @@
 import PouchDB from "pouchdb";
 const db = new PouchDB("name");
 const userName = "";
-if (db.get("username"))
+if (!(await db.get("username")))
 {
-
+    prompt("BOO");
 }
 
 
