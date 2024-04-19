@@ -29,10 +29,10 @@
 
 .grid-container {
     display:grid;
-    align-self:center;
-    grid-template-columns: repeat(2, 250px);
+    margin: 0, auto;
+    grid-template-columns: repeat(2, 500px);
     grid-template-rows: repeat(3, 250px);
-    width: 500px;
+    width: fit-content;
     height: 750px;
 }
 
