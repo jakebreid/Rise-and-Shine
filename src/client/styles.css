@@ -27,3 +27,51 @@
     color: white;
 }
 
+.grid-container {
+    display:grid;
+    align-self:center;
+    grid-template-columns: repeat(2, 250px);
+    grid-template-rows: repeat(3, 250px);
+    width: 500px;
+    height: 750px;
+}
+
+.weather {
+    width: 250px;
+    height: 250px;
+    grid-column: 1/1;
+    grid-row: 1/1;
+    background-color:blue;
+}
+
+.news {
+    width: 250px;
+    height: 250px;
+    grid-column: 1/1;
+    grid-row: 2/2;
+    background-color:blueviolet;
+}
+
+.calendar {
+    width: 250px;
+    height: 250px;
+    grid-column: 2/2;
+    grid-row: 1/1;
+    background-color:antiquewhite;
+}
+
+.spotify {
+    width: 250px;
+    height: 250px;
+    grid-column: 2/2;
+    grid-row: 2/2;
+    background-color:azure;
+}
+.games {
+    width: 500px;
+    height: 250px;
+    grid-column: 1/2;
+    grid-row: 3/3;
+    background-color:blanchedalmond;
+}
+
