@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize with the home view
     navigate("homeView");
-}
+});
 //LINDSEY WORKSPACE HERE 
 
 
