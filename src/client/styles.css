@@ -32,7 +32,8 @@
     margin: 0, auto;
     grid-template-columns: repeat(2, 500px);
     grid-template-rows: repeat(3, 250px);
-    width: fit-content;
+    width: 1000px;
+    margin: 0 auto;
     height: 750px;
 }
 
