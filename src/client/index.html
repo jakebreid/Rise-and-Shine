@@ -11,15 +11,6 @@
     <script type="module" src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <!-- Navigation bar, logo, etc. -->
-        <div class="topnav">
-            <a href="#home" class="active">Home</a>
-            <a href="#calendar">Calendar</a>
-            <a href="#contact">Contact</a>
-            <a href="#news">News</a>
-        </div>
-    </header>
     <header id = "vision">
         <center>
             <h1 id = "myTitle" text = "Rise and Shine - The Perfect Way to Start Your Day!"></h1>
@@ -28,7 +19,7 @@
     <nav>
         <!-- Links to different sections/pages -->
     </nav>
-
+<!--  -->
     <main>
         <!-- Main content of the document -->
         <div class="grid-container">
@@ -48,6 +39,14 @@
                 <h2>DO NOT TOUCH</h2>
             </div>
         </div>  
+
+        <div id="views">
+            <div class="view" id="homeView">Home</div>
+            <div class="view" id="weatherView" style="display:none">Weather</div> 
+            <div class="view" id="newsView" style="display:none">News</div>
+            <div class="view" id="calenderView" style="display:none">Calendar</div>
+            <div class="view" id="spotifyView" style="display:none">Spotify</div>
+        </div>
         <article>
             <!-- Primary content like a blog post or article -->
         </article>

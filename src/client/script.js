@@ -10,10 +10,25 @@ const userName = prompt("Greetings! We recognize this is your first time here!\n
 document.getElementById("myTitle").innerHTML = "Rise and Shine, " + userName + "!";
 
 //DAN WORKSPACE HERE 
+document.addEventListener("DOMContentLoaded", () => {
+    function navigate(viewId) {
+      // Hide all views
+      document.querySelectorAll(".view").forEach((view) => {
+        view.style.display = "none";
+      });
+      // Show the requested view
+      document.getElementById(viewId).style.display = "block";
+    }
+  
+    document.getElementById("home").addEventListener("click", () => navigate("homeView"));
+    document.getElementById("weatherBox").addEventListener("click", () => navigate("weatherView"));
+    document.getElementById("newsBox").addEventListener("click", () => navigate("newsView"));
+    document.getElementById("calenderBox").addEventListener("click", () => navigate("calendarView"));
+    document.getElementById("spotifyBox").addEventListener("click", () => navigate("spotifyView"));
 
-
-
-
+    // Initialize with the home view
+    navigate("homeView");
+});
 //LINDSEY WORKSPACE HERE 
 
 
