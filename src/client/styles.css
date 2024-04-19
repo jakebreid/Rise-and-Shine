@@ -32,7 +32,8 @@
     align-self:center;
     grid-template-columns: repeat(2, 250px);
     grid-template-rows: repeat(3, 250px);
-    width: 500px;
+    margin: 0 auto;
+    width: fit-content;
     height: 750px;
 }
 
