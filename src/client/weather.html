@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Overview</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
+</head>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: #e0f7fa;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    width: 170px;
+    height: 400px; 
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.myPic
+{
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+  </style>
+<body>
+<main>
+<header>
+   <center> <h1>Weather</h1> </center>
+</header>
+<div class="grid-container">
+    <div class="grid-item"><center>Sunday</center><img src = "myWeather.png" class = "myPic"></div>
+    <div class="grid-item"><center>Monday</center><img src = "myWeather.png" class = "myPic"></div>
+    <div class="grid-item"><center>Tuesday</center><img src = "myWeather.png" class = "myPic"></div>
+    <div class="grid-item"><center>Wednesday</center><img src = "myWeather.png" class = "myPic"></div>
+    <div class="grid-item"><center>Thursday</center><img src = "myWeather.png" class = "myPic"></div>
+    <div class="grid-item"><center>Friday</center><img src = "myWeather.png" class = "myPic"></div>
+    <div class="grid-item"><center>Saturday</center><img src = "myWeather.png" class = "myPic"></div>
+  </div>
+</main>
+</body>

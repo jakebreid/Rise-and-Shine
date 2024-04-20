@@ -1,33 +1,10 @@
-.topnav {
-    overflow: hidden;
-    background-color: rgb(102, 157, 254);
-    align-self: auto;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
 }
-
-.topnav a {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 16px 100px;
-    font-size: 15px;
-     
-}
-
-.topnav a:hover {
-    background-color: rgb(33, 35, 166);
-    color: white;
-}
-
-.topnav a.active {
-    background-color: rgb(102, 102, 102);
-}
-
-.topnav a.active:hover {
-    background-color: rgb(33, 35, 166);
-    color: white;
-}
-
-.grid-container {
+#centralgrid {
     display:grid;
     margin: 0, auto;
     grid-template-columns: repeat(2, 500px);
@@ -36,43 +13,15 @@
     margin: 0 auto;
     height: 750px;
 }
-
-.weather {
-    width: 500px;
-    height: 250px;
-    grid-column: 1/1;
-    grid-row: 1/1;
-    background-color:blue;
+.grid-item {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(231, 202, 212);
 }
-
-.news {
-    width: 500px;
-    height: 250px;
-    grid-column: 1/1;
-    grid-row: 2/2;
-    background-color:blueviolet;
-}
-
-.calendar {
-    width: 500px;
-    height: 250px;
-    grid-column: 2/2;
-    grid-row: 1/1;
-    background-color:antiquewhite;
-}
-
-.spotify {
-    width: 500px;
-    height: 250px;
-    grid-column: 2/2;
-    grid-row: 2/2;
-    background-color:azure;
-}
-.games {
-    width: 1000px;
-    height: 250px;
-    grid-column: 1/2;
-    grid-row: 3/3;
-    background-color:blanchedalmond;
+.grid-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 

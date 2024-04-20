@@ -25,12 +25,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("newsBox").addEventListener("click", () => navigate("newsView"));
     document.getElementById("calenderBox").addEventListener("click", () => navigate("calendarView"));
     document.getElementById("spotifyBox").addEventListener("click", () => navigate("spotifyView"));
-
+    document.addEventListener('DOMContentLoaded', function() {
+        var weatherBox = document.getElementById('weatherBox');
+        weatherBox.addEventListener('click', function() {
+            window.location.href = 'weather.html';
+        });
     // Initialize with the home view
     navigate("homeView");
-});
+})});
 //LINDSEY WORKSPACE HERE 
-
+document.addEventListener('DOMContentLoaded', function() {
+    var weatherBox = document.getElementById('weatherBox');
+    weatherBox.addEventListener('click', function() {
+        window.location.href = 'weather.html';
+    })});
 
 
 

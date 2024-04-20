@@ -7,7 +7,6 @@
     <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <!-- JavaScript Files -->
-    <script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
     <script type="module" src="script.js" defer></script>
 </head>
 <body>
@@ -22,20 +21,20 @@
 <!--  -->
     <main>
         <!-- Main content of the document -->
-        <div class="grid-container">
-            <div class="grid-item weather" id = "weatherBox">
-                <a href="weather.html" class="active">Weather</a>
+        <div class="grid-container" id="centralgrid">
+            <div class="grid-item" id = "weatherBox">
+                <center>Weather</center>
             </div>
-            <div class="grid-item news" id = "newsBox">
+            <div class="grid-item" id = "newsBox">
                 <a href="news.html" class="active">News</a>
             </div>
-            <div class="grid-item calendar" id = "calenderBox">
+            <div class="grid-item" id = "calenderBox">
                 <a href="calender.html" class="active">Calender</a>
             </div>
-            <div class="grid-item spotify" id ="spotifyBox">
+            <div class="grid-item" id ="spotifyBox">
                 <a href="spotify.html" class="active">Spotify</a>
             </div>
-            <div class="grid-item games" id = "gamesBox"> 
+            <div class="grid-item" id = "gamesBox"> 
                 <h2>DO NOT TOUCH</h2>
             </div>
         </div>  
