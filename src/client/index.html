@@ -7,7 +7,17 @@
     <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <!-- JavaScript Files -->
-    <script src="node_modules/pouchdb/dist/pouchdb.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
+    <script> 
+    const db = new PouchDB("mydatabase");
+    db.get("user").then(function(doc)
+    {
+        document.getElementById("myTitle").innerHTML = "Rise and Shine, " + doc.username + "!";
+    }).catch(function () {
+    let newUser = prompt("Greetings! We recognize this is your first time here!\nPlease Enter Your Name:", "");
+    db.put({_id: "user", username: newUser});
+    document.getElementById("myTitle").innerHTML = "Rise and Shine, " +  newUser + "!"});
+    </script>
     <script type="module" src="script.js" defer></script>
 </head>
 <body>
