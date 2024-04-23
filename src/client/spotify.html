@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Overview</title>
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- JavaScript Files -->
+    <script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        padding: 20px;
+    }
+    
+    .grid-item {
+        background-color: #e0f7fa;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        width: 170px;
+        height: 400px; 
+    }
+    
+    .grid-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    
+    .myPic
+    {
+        width: 150px;
+        height: 150px;
+        margin: 10px;
+    }
+    
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    h2 { 
+        color: green; 
+        text-align: center; 
+        margin-bottom: 10px; 
+    }
+
+    h3 { 
+        color: blue; 
+        text-align: center; 
+        margin-bottom: 5px; 
+    }
+
+    p { 
+        color: black; 
+        text-align:left; 
+    }
+      </style>
+<body>
+    <main> 
+        <header> 
+            <h1>Good Morning, User! Here are some tunes to kickstart your day!</h1>
+        </header>
+        <div class="grid-container">
+            <div class="grid-item"><center>Trending Songs Playlist</center><img src = "spotify.png" class = "myPic"></div>
+            <div class="grid-item"><center>New Release You Might Like</center><img src = "spotify.png" class = "myPic"></div>
+            <div class="grid-item"><center>Artist Highlight</center><img src = "spotify.png" class = "myPic"></div>
+            <div class="grid-item"><center>Reccomended Podcast</center><img src = "spotify.png" class = "myPic"></div>
+          </div>
+        <h2>Trending Songs in America Playlist</h2>
+        <p>Insert interactive element that when you click on it, you are directed to said playlist</p>
+        <h2>A Newly Released Album You Might Enjoy</h2>
+        <p>Insert interactive element that when you click on it, you are directed to said album</p>
+        <h2>Artist Highlight</h2>
+        <p>Insert interactive element that when you click on it, you are directed to said artist page</p>
+        <h2>Reccomended Podctas</h2>
+        <p>Insert interactive element that when you click on it, you are directed to said podcast</p>
+        <h3>Important Notes</h3>
+        <p>These might/will change depending on if we have access to someone's individual spotify account, or if it is just using a generic Spotify API</p>
+    </main>
+</body>
+</html>
