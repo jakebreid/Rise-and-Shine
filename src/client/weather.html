@@ -49,21 +49,43 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
 }
+.day-label {
+    font-family: 'Arial', sans-serif; /* Consistent with body font */
+    font-size: 20px; /* Larger font size for better visibility */
+    color: #0277BD; /* Deep blue color for a refreshing look */
+    font-weight: bold; /* Makes the text bold */
+    margin: 10px 0; /* Adds space around the text */
+    text-transform: uppercase; /* Optional: capitalizes the labels for uniformity */
+}
+.header-title {
+    font-family: 'Helvetica', sans-serif; /* Modern and clean font */
+    font-size: 36px; /* Large font size for header visibility */
+    color: #005792; /* Deep ocean blue for a serene, thematic feel */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background to stand out from the background */
+    padding: 20px 40px; /* Padding around the text for better framing */
+    border-radius: 15px; /* Rounded corners for a softer look */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Subtle box-shadow for a 3D effect */
+    width: 100%; /* Ensures the background only extends around the text */
+    margin: 0 0 0 -30px; /* Centered horizontally with space from top */
+    display: block; /* Block display to accommodate margins and centering */
+}
+
 
   </style>
 <body>
 <main>
 <header>
-   <center> <h1>Weather</h1> </center>
+   <center> <h1 class = "header-title">Weekly Weather Outlook</h1> </center>
 </header>
 <div class="grid-container">
-    <div class="grid-item"><center>Sunday</center><img src = "myWeather.png" class = "myPic"></div>
-    <div class="grid-item"><center>Monday</center><img src = "myWeather.png" class = "myPic"></div>
-    <div class="grid-item"><center>Tuesday</center><img src = "myWeather.png" class = "myPic"></div>
-    <div class="grid-item"><center>Wednesday</center><img src = "myWeather.png" class = "myPic"></div>
-    <div class="grid-item"><center>Thursday</center><img src = "myWeather.png" class = "myPic"></div>
-    <div class="grid-item"><center>Friday</center><img src = "myWeather.png" class = "myPic"></div>
-    <div class="grid-item"><center>Saturday</center><img src = "myWeather.png" class = "myPic"></div>
+    <div class="grid-item"><center class = "day-label">Sunday</center><img src = "myWeather.png" class = "myPic"><center><label>Weather info here</label></center></div>
+    <div class="grid-item"><center class = "day-label">Monday</center><img src = "myWeather.png" class = "myPic"><center><label>Weather info here</label></center></div>
+    <div class="grid-item"><center class = "day-label">Tuesday</center><img src = "myWeather.png" class = "myPic"><center><label>Weather info here</label></center></div>
+    <div class="grid-item"><center class = "day-label">Wednesday</center><img src = "myWeather.png" class = "myPic"><center><label>Weather info here</label></center></div>
+    <div class="grid-item"><center class = "day-label">Thursday</center><img src = "myWeather.png" class = "myPic"><center><label>Weather info here</label></center></div>
+    <div class="grid-item"><center class = "day-label">Friday</center><img src = "myWeather.png" class = "myPic"><center><label>Weather info here</label></center></div>
+    <div class="grid-item"><center class = "day-label">Saturday</center><img src = "myWeather.png" class = "myPic"><center><label>Weather info here</label></center></div>
   </div>
 </main>
 </body>

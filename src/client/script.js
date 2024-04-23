@@ -30,6 +30,23 @@ document.addEventListener('DOMContentLoaded', function() {
     weatherBox.addEventListener('click', function() {
         window.location.href = 'weather.html';
     })});
+document.addEventListener('DOMContentLoaded', function() {
+        var newsBox = document.getElementById('newsBox');
+        newsBox.addEventListener('click', function() {
+            window.location.href = 'news.html';
+        })});
+        document.addEventListener('DOMContentLoaded', function() {
+         var spotifyBox = document.getElementById('spotifyBox');
+        spotifyBox.addEventListener('click', function() {
+            window.location.href = 'spotify.html';
+        })});
+        document.addEventListener('DOMContentLoaded', function() {
+            var calenderBox = document.getElementById('calenderBox');
+            calenderBox.addEventListener('click', function() {
+                window.location.href = 'calender.html';
+            })});
+
+
 
 
 

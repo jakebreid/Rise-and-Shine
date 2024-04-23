@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
+    background-color: #e0f7fa;
     margin: 0;
     padding: 0;
 }
@@ -18,10 +18,56 @@ body {
     transition: transform 0.3s ease;
     padding: 10px;
     margin: 10px;
-    background-color: rgb(231, 202, 212);
+    background-color: rgb(254, 209, 141);
 }
 .grid-item:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+#gamesBox{
+    width: 960px;
+}
+#myTitle {
+    font-family: 'Arial', sans-serif; 
+    color: #FFA500; 
+    text-shadow: 2px 2px 4px #DDDDDD; 
+    font-size: 48px; 
+    background-color: #FFF8DC; 
+    padding: 10px 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
+    margin-top: 20px; 
+    border: 1px solid #FFD700; 
+}
+.box-title {
+    font-family: 'Helvetica', sans-serif; /* Sleek, readable font */
+    color: #0077CC; /* Soft blue to represent the morning sky */
+    text-shadow: 1px 1px 2px #FFFFFF; /* White shadow to enhance visibility */
+    font-size: 24px; /* Appropriately sized for subtitles */
+    background-color: #E6E6FA; /* Light lavender background for a calm, morning feel */
+    padding: 4px 8px; /* Comfortable spacing around text */
+    border-radius: 5px; /* Slightly rounded corners for a friendly appearance */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Very subtle shadow for depth */
+    text-align: center; /* Center alignment to keep it neat */
+    margin-bottom: 10px; /* Space below the title for separation from content */
+    border: 1px solid #B0C4DE; /* Soft steel blue border to tie into the morning sky theme */
+    margin-top: 0;
+}
+.myPic
+{
+width: 75px;
+height: 75px;
+margin: 10px;
+}
+.box-content {
+    font-family: 'Open Sans', sans-serif; /* Modern, readable font */
+    color: #333333; /* Darker color for good readability */
+    font-size: 16px; /* Standard size for body text */
+    line-height: 1.2; /* Spacing between lines for better readability */
+    text-align: left; /* Justified text for a clean appearance */
+    margin-top: 10px; 
+    overflow-y: auto; 
+    height: calc(100% - 60px); 
 }
 
