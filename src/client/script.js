@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("home").addEventListener("click", () => navigate("homeView"));
     document.getElementById("weatherBox").addEventListener("click", () => navigate("weatherView"));
     document.getElementById("newsBox").addEventListener("click", () => navigate("newsView"));
-    document.getElementById("calenderBox").addEventListener("click", () => navigate("calendarView"));
+    document.getElementById("stockBox").addEventListener("click", () => navigate("calendarView"));
     document.getElementById("spotifyBox").addEventListener("click", () => navigate("spotifyView"));
     document.addEventListener('DOMContentLoaded', function() {
         var weatherBox = document.getElementById('weatherBox');
@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'spotify.html';
         })});
         document.addEventListener('DOMContentLoaded', function() {
-            var calenderBox = document.getElementById('calenderBox');
+            var calenderBox = document.getElementById('stockBox');
             calenderBox.addEventListener('click', function() {
-                window.location.href = 'calender.html';
+                window.location.href = 'stocks.html';
             })});
 
 
