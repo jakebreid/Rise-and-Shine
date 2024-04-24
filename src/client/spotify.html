@@ -49,11 +49,28 @@
         margin: 82.5px;
     } /* styling for the spotify logo; consistent in all of the containers */ 
     
-    h1 {
-        color: #333;
-        text-align: center;
-        margin-bottom: 20px;
-    } /* styles the "Welcome User" message */ 
+    #spotTitle {
+        font-family: 'Helvetica', sans-serif; 
+    font-size: 36px; 
+    color: #2a8725; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px 40px; 
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+    width: 100%; 
+    margin: 0 0 0 -30px; 
+    display: block; 
+}
+    .modBoxy
+    {
+    font-family: 'Arial', sans-serif; 
+    font-size: 20px; 
+    color: #2a8725; 
+    font-weight: bold; 
+    margin: 10px 0; /* Adds space around the text */
+    text-transform: uppercase; 
+    }
 
     h2 { 
         color: green; 
@@ -75,13 +92,13 @@
 <body>
     <main> 
         <header> 
-            <h1>Good Morning, User! Here are some tunes to kickstart your day!</h1>
+            <h1 id = "spotTitle">Today's Spotify Recommended</h1>
         </header>
         <div class="grid-container-s">
-            <div class="grid-item-s"><center>Trending Songs Playlist</center><img src = "spotify.png" class = "myPicS"></div>
-            <div class="grid-item-s"><center>New Release You Might Like</center><img src = "spotify.png" class = "myPicS"></div>
-            <div class="grid-item-s"><center>Artist Highlight</center><img src = "spotify.png" class = "myPicS"></div>
-            <div class="grid-item-s"><center>Recommended Podcast</center><img src = "spotify.png" class = "myPicS"></div>
+            <div class="grid-item-s"><center class = "modBoxy">Trending Songs Playlist</center><img src = "spotify.png" class = "myPicS"></div>
+            <div class="grid-item-s"><center class = "modBoxy">New Release You Might Like</center><img src = "spotify.png" class = "myPicS"></div>
+            <div class="grid-item-s"><center class = "modBoxy">Artist Highlight</center><img src = "spotify.png" class = "myPicS"></div>
+            <div class="grid-item-s"><center class = "modBoxy">Recommended Podcast</center><img src = "spotify.png" class = "myPicS"></div>
           </div>
         <h2>Trending Songs in America Playlist</h2>
         <p>Insert interactive element that when you click on it, you are directed to said playlist</p>

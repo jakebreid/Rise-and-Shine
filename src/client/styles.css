@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #e0f7fa;
+    background-color: #ffca81;
     margin: 0;
     padding: 0;
 }
@@ -97,4 +97,8 @@ margin: 10px;
     transition: background-color 0.3s ease;
     width: fit-content;
     align-self: left; 
+  }
+  #homeView
+  {
+        background-color: rgb(215, 233, 255);
   }
