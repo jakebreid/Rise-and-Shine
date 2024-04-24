@@ -30,6 +30,15 @@
     document.getElementById("myTitle").innerHTML = "Rise and Shine, " +  newUser + "!"});
     </script>
     <script type="module" src="script.js" defer></script>
+    <script src="jquery-3.7.1.min.js"></script> 
+    <script> 
+    $(function(){
+      $("#includedContent").load("weather.html"); 
+    });
+    $(function(){
+      $("#includedContentS").load("spotify.html"); 
+    });
+    </script> 
 </head>
 <body>
     <header id = "vision">
