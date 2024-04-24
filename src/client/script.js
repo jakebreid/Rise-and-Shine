@@ -1,10 +1,11 @@
 //JAKE WORKSPACE HERE 
 
-//DAN WORKSPACE HERE 
-/**
- * 
- */
+//DAN WORKSPACE HERE  
 document.addEventListener("DOMContentLoaded", () => {
+    /**
+     * Hides all views not specified and displays the current view 
+     * @param {string} viewId the view to be displayed
+     */
     function navigate(viewId) {
       // Hide all views
       document.querySelectorAll(".view").forEach((view) => {
@@ -23,7 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
    
     // Initialize with the home view
     navigate("homeView");
-// })
+ 
+    const category = document.getElementById(categories);    
+    document.getElementById("search").addEventListener("click", () => {
+        let str = category.value;
+        //use APIs to fetch articles based on the category
+        //append the string to the end of the appropriate URL. 
+    });
 });
 //LINDSEY WORKSPACE HERE 
 
