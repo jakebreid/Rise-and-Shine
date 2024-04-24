@@ -72,3 +72,29 @@ margin: 10px;
     height: calc(100% - 60px); 
 }
 
+#weatherBox .myPic
+{
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+}
+
+#spotifyBox .myPic
+{
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+}
+
+.home {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+    align-self: left; 
+  }
