@@ -13,10 +13,10 @@
     const newUser = "";
     db.get("user").then(function(doc)
     {
-        document.getElementById("myTitle").innerHTML = "Rise and Shine, " + doc.username + "!";
+        document.getElementById("myTitle").innerHTML = "Rise and Shine, " + doc.username + "!"; //sets name of user at header if it is not first time 
     }).catch(function () {
     function askName() {
-     newUser = prompt("Greetings! We recognize this is your first time here!\nPlease Enter Your Name:", "");
+     newUser = prompt("Greetings! We recognize this is your first time here!\nPlease Enter Your Name:", ""); //prompts the user to input name if its first time
      if (newUser !== null && newUser !== "")
      {
         db.put({_id: "user", username: newUser});
@@ -27,7 +27,7 @@
      }
     }
     askName();
-    document.getElementById("myTitle").innerHTML = "Rise and Shine, " +  newUser + "!"});
+    document.getElementById("myTitle").innerHTML = "Rise and Shine, " +  newUser + "!"}); //sets title 
     </script>
     <script type="module" src="script.js" defer></script>
     <script src="jquery-3.7.1.min.js"></script> 
@@ -67,18 +67,14 @@
             <div class="grid-item" id = "newsBox">
                 <h2 class = "box-title">News</h2>
             </div>
-            <div class="grid-item" id = "stockBox">
-                <h2 class = "box-title">Stocks</h2>
+            <div class="grid-item" id = "calenderBox">
+                <h2 class = "box-title">Calender</h2>
             </div>
             <div class="grid-item" id ="spotifyBox">
                 <h2 class = "box-title">Spotify Recommended</h2>
-                <center><img src = spotify.png class = "myPic"></center>
-                <label class = "box-content">Here we will briefly list reccomended audio options on spotify. When you click on the icon, you will be taken to an in-depth page detailing your reccomended playlists.</label>
             </div>
             <div class="grid-item" id = "gamesBox"> 
                 <h2 class = "box-title">Today's Recommended Game of the Day</h2>
-                <center><img src = NYTGames.png class = "myPic"></center>
-                <label class = "box-content">Here we will list a reccomended mini game to play, such as the NYT Wordle, NYT Mini Crossword, etc</label>
             </div>
         </div>   -->
 

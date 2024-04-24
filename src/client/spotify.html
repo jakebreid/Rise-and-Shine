@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <!-- JavaScript Files -->
     <script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
+    <!-- standard html format -->
 </head>
 <style>
     body {
@@ -23,7 +24,7 @@
         gap: 1px;
         padding: 10px;
         margin-left: 70px;
-    }
+    } /*sets a standard styling for all of the grid containers */
     
     .grid-item-s {
         background-color: #e0f7fa;
@@ -34,42 +35,42 @@
         padding: 2px;
         width: 315px;
         height: 400px; 
-    }
+    } /*sets a standard styling for all of the grid items inside of the containers */
     
     .grid-item-s:hover {
         transform: scale(1.05);
         box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
+    } /* on hover, the grid items will have a shadow and transform; consistent styling with weather and stocks */
     
     .myPicS {
         display: grid;
         width: 150px;
         height: 150px;
         margin: 82.5px;
-    }
+    } /* styling for the spotify logo; consistent in all of the containers */ 
     
     h1 {
         color: #333;
         text-align: center;
         margin-bottom: 20px;
-    }
+    } /* styles the "Welcome User" message */ 
 
     h2 { 
         color: green; 
         text-align: center; 
         margin-bottom: 10px; 
-    }
+    } /* styles the headings for each of the spotify sections; keeps it consistent for each heading */ 
 
     h3 { 
         color: blue; 
         text-align: center; 
         margin-bottom: 5px; 
-    }
+    } /* styles the one little note about incorporating real data */ 
 
     p { 
         color: black; 
         text-align:left; 
-    }
+    } /* styles the sentences under each spotify section; keeps it consistent for all of the paragraph text*/
       </style>
 <body>
     <main> 
