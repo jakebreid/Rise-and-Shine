@@ -1,6 +1,9 @@
 //JAKE WORKSPACE HERE 
 
 //DAN WORKSPACE HERE 
+/**
+ * 
+ */
 document.addEventListener("DOMContentLoaded", () => {
     function navigate(viewId) {
       // Hide all views
@@ -13,41 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
   
     document.querySelectorAll(".home").forEach((e) => e.addEventListener("click", () => navigate("homeView")));
 
-    //document.getElementById("home").addEventListener("click", () => navigate("homeView"));
     document.getElementById("weatherBox").addEventListener("click", () => navigate("weatherView"));
     document.getElementById("newsBox").addEventListener("click", () => navigate("newsView"));
     document.getElementById("stockBox").addEventListener("click", () => navigate("stockView"));
     document.getElementById("spotifyBox").addEventListener("click", () => navigate("spotifyView"));
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     var weatherBox = document.getElementById('weatherBox');
-    //     weatherBox.addEventListener('click', function() {
-    //         window.location.href = 'weather.html';
-    //     });
+   
     // Initialize with the home view
     navigate("homeView");
 // })
 });
 //LINDSEY WORKSPACE HERE 
-// document.addEventListener('DOMContentLoaded', function() {
-//     var weatherBox = document.getElementById('weatherBox');
-//     weatherBox.addEventListener('click', function() {
-//         window.location.href = 'weather.html';
-//     })});
-// document.addEventListener('DOMContentLoaded', function() {
-//         var newsBox = document.getElementById('newsBox');
-//         newsBox.addEventListener('click', function() {
-//             window.location.href = 'news.html';
-//         })});
-//         document.addEventListener('DOMContentLoaded', function() {
-//          var spotifyBox = document.getElementById('spotifyBox');
-//         spotifyBox.addEventListener('click', function() {
-//             window.location.href = 'spotify.html';
-//         })});
-//         document.addEventListener('DOMContentLoaded', function() {
-//             var calenderBox = document.getElementById('stockBox');
-//             calenderBox.addEventListener('click', function() {
-//                 window.location.href = 'stocks.html';
-//             })});
 
 
 
