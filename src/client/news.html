@@ -54,9 +54,10 @@
     font-weight: bold; 
     margin: 10px 0; /* Adds space around the text */
 }
+
 </style>
 <body>
-<main>
+<center>
     <header>
        <h1 id="newsHeader">Today's News</h1>
     </header>
@@ -65,12 +66,26 @@
             <center><label class="outlet">New York Times Stories</label></center>
         </div>
         <div class="newsItem" id="Guardian">
-            <center><label class="outlet">The Guar Stories</label></center>
+            <center><label class="outlet">The Guardian Stories</label></center>
         </div>
         <div class="newsItem" id="theNewsAPI">
             <center><label class="outlet">Miscellaneous News</label></center>
         </div>
     </div>
+
+    <center><div>
+        <select id="categories">
+            <option class="category">Arts</option>
+            <option class="category">Business</option>
+            <option class="category">Health</option>
+            <option class="category">Politics</option>
+            <option class="category">Sports</option>
+            <option class="category">Technology</option>
+            <option class="category">World</option>
+        </select>
+
+        <button id="search">Search</button>
+    </div></center>
 </main>
 
 </body>
