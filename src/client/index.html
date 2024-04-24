@@ -10,7 +10,7 @@
     <script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
     <script> 
     const db = new PouchDB("mydatabase");
-    let newUser = "";
+    const newUser = "";
     db.get("user").then(function(doc)
     {
         document.getElementById("myTitle").innerHTML = "Rise and Shine, " + doc.username + "!";
