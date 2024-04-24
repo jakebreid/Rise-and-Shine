@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     document.querySelectorAll(".home").forEach((e) => e.addEventListener("click", () => navigate("homeView")));
-
+    //sets up all views
     document.getElementById("weatherBox").addEventListener("click", () => navigate("weatherView"));
     document.getElementById("newsBox").addEventListener("click", () => navigate("newsView"));
     document.getElementById("stockBox").addEventListener("click", () => navigate("stockView"));
