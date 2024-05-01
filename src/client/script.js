@@ -1,4 +1,3 @@
-//JAKE WORKSPACE HERE 
 
 //DAN WORKSPACE HERE  
 document.addEventListener("DOMContentLoaded", () => {
@@ -28,11 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const category = document.getElementById(categories);    
     document.getElementById("search").addEventListener("click", () => {
         let str = category.value;
-        //use APIs to fetch articles based on the category
-        //append the string to the end of the appropriate URL. 
     });
 });
 //LINDSEY WORKSPACE HERE 
+//JAKE CODE BELOW
+
+
 
 
 

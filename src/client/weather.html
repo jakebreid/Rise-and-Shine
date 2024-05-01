@@ -78,14 +78,30 @@ h1 {
 <header>
    <center> <h1 class = "header-title">Weekly Weather Outlook</h1> </center>
 </header>
+<script> 
+const date = new Date();
+
+const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const currentDayOfWeek = daysOfWeek[date.getDay()];
+
+let j = daysOfWeek.indexOf(currentDayOfWeek);
+console.log(`Today is ${currentDayOfWeek}`);
+for (let i = 0; i < 7; i++)
+{
+  let x = i.toString() + "w";
+  document.getElementById(x).innerHTML = daysOfWeek[j];
+  j++; 
+  j = j % 7; 
+}
+</script>
 <div class="grid-container-w">
-    <div class="grid-item-w"><center class = "day-label">Sunday</center><img src = "myWeather.png" class = "myPicW"><center><label>Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label">Monday</center><img src = "myWeather.png" class = "myPicW"><center><label>Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label">Tuesday</center><img src = "myWeather.png" class = "myPicW"><center><label>Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label">Wednesday</center><img src = "myWeather.png" class = "myPicW"><center><label>Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label">Thursday</center><img src = "myWeather.png" class = "myPicW"><center><label>Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label">Friday</center><img src = "myWeather.png" class = "myPicW"><center><label>Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label">Saturday</center><img src = "myWeather.png" class = "myPicW"><center><label>Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 0w>Sunday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "sun">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 1w>Monday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "mon">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 2w>Tuesday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "tue">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 3w>Wednesday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "wed">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 4w>Thursday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "thu">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 5w>Friday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "fri">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 6w>Saturday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "sat">Weather info here</label></center></div>
   </div>
 </main>
 </body>

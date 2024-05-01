@@ -56,5 +56,8 @@
     "http-server": "^14.1.1",
     "pouchdb": "^8.0.1",
     "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "openmeteo": "^1.1.3"
   }
 }
