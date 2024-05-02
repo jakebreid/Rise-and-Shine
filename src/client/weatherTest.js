@@ -1,4 +1,5 @@
-import { fetchWeatherApi } from '/Users/jakereid/Downloads/cs326-project/node_modules/openmeteo/lib/index'; //need to start HTTP server for this to work
+import { fetchWeatherApi } from 'openmeteo'; //need to start HTTP server for this to work
+console.log("im here");
 const params = {
     latitude: 42.3732,
     longitude: 72.5199,

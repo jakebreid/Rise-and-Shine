@@ -1,6 +1,5 @@
 import http from 'http';
 import url from 'url';
-let count = 0;
 function requestHandler(req, res) {
     
       res.writeHead(200, { 'Content-Type': 'text/html' });
