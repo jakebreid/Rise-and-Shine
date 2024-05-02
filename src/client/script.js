@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * 
- * @param {} position 
+ * Get location data with user permission
+ * @param {*} position 
  */
 const successCallback = (position) => {
   console.log(position);
