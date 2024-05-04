@@ -1,24 +1,23 @@
-import http from 'http';
-import url from 'url';
-function requestHandler(req, res) {
-    
-      res.writeHead(200, { 'Content-Type': 'text/html' });
+import express from "express";
+import logger from "morgan";
+import * as db from "./db.js";
 
-      let reqURL = req.url;
-      let pathname = url.parse(reqURL, true).pathname;      
+const headerFields = { "Content-Type": "text/html" };
 
-      if(pathname === '/inc') {
-        count++;
-        res.end(`<strong>Count: ${count}</strong>`);
-      } else {
-        res.end("Server is running");
-      }    
-    
-}
-// TASK #4: Create the web server
-// Add your implementation below.
-const server = http.createServer(requestHandler);
+const app = express();
+const port = 3260;
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-server.listen(3000, () => {
-  console.log(`Server started on port 3000`);
+app.use(express.static("src/client"));
+
+const MethodNotAllowedHandler = async (request, response) => {
+  response.writeHead(405, { "Content-Type": "text/plain" });
+  response.write("Method Not Allowed");
+  response.end();
+};
+
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
 });
