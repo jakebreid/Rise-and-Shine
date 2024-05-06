@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="styles.css">
     <!-- JavaScript Files -->
     <script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
+    <script type="module" src="script.js" defer></script>
+    <script src="jquery-3.7.1.min.js"></script> 
     <script> 
     const db = new PouchDB("mydatabase");
     const newUser = "";
@@ -28,10 +30,6 @@
     }
     askName();
     document.getElementById("myTitle").innerHTML = "Rise and Shine, " +  newUser + "!"}); //sets title 
-    </script>
-    <script type="module" src="script.js" defer></script>
-    <script src="jquery-3.7.1.min.js"></script> 
-    <script> 
     $(function(){
       $("#includedContentWeather").load("weather.html"); //creates multiview and loads it 
     });

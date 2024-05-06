@@ -1,16 +1,25 @@
-import express from "express";
-import logger from "morgan";
-import * as db from "./db.js";
+import express from 'express';
+import logger from 'morgan';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const headerFields = { "Content-Type": "text/html" };
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 3260;
-app.use(logger("dev"));
+
+app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Serve static files from the 'src/client' directory
 app.use(express.static("src/client"));
+
+// Route to serve the index.html file when the root URL is accessed
+app.get('/', (req, res) => { 
+  res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
+});
 
 const MethodNotAllowedHandler = async (request, response) => {
   response.writeHead(405, { "Content-Type": "text/plain" });
