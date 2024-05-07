@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 3260;
+let myPath = __dirname.split("/src")[0];
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -18,7 +19,7 @@ app.use(express.static("src/client"));
 
 // Route to serve the index.html file when the root URL is accessed
 app.get('/', (req, res) => { 
-  res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
+  res.sendFile(myPath.concat("/src/client/index.html"));
 });
 
 const MethodNotAllowedHandler = async (request, response) => {
