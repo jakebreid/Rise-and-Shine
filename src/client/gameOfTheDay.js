@@ -22,7 +22,7 @@ const games = [
 ];  //initializes all games in a data structure. For complexity reasons, I am sticking to these four games. 
 
 function getRandomGame(games){ 
-    const randomIndex = Math.floor(math.random()*games.length); 
+    const randomIndex = Math.floor(Math.random()*games.length); 
     return games[randomIndex]; //returns a randomly generated index 0-3, representing one of the games 
 }
 

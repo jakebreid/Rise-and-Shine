@@ -12,83 +12,60 @@
     <!-- standard html format -->
 </head>
 <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f4f4f9;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .grid-container-s {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1px;
-        padding: 10px;
-        margin-left: 70px;
-    } /*sets a standard styling for all of the grid containers */
-    
-    .grid-item-s {
-        background-color: #e0f7fa;
-        border-radius: 10px;
-        padding: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-        padding: 2px;
-        width: 315px;
-        height: 400px; 
-    } /*sets a standard styling for all of the grid items inside of the containers */
-    
-    .grid-item-s:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    } /* on hover, the grid items will have a shadow and transform; consistent styling with weather and stocks */
-    
-    .myPicS {
-        display: grid;
-        width: 150px;
-        height: 150px;
-        margin: 82.5px;
-    } /* styling for the spotify logo; consistent in all of the containers */ 
-    
-    #gameOfTheDayTitle {
-        font-family: 'Helvetica', sans-serif; 
-    font-size: 36px; 
-    color:  #005792;; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
-    background-color: rgba(255, 255, 255, 0.8); 
-    padding: 20px 40px; 
-    border-radius: 15px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
-    width: 100%; 
-    margin: 0 0 0 -30px; 
-    display: block; 
+    /* Reset default browser styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-    .modBoxy
-    {
-    font-family: 'Arial', sans-serif; 
-    font-size: 20px; 
-    color: #2a8725; 
-    font-weight: bold; 
-    margin: 10px 0; /* Adds space around the text */
-    text-transform: uppercase; 
-    }
 
-    h2 { 
-        color: green; 
-        text-align: center; 
-        margin-bottom: 10px; 
-    } /* styles the headings for each of the spotify sections; keeps it consistent for each heading */ 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
 
-    h3 { 
-        color: blue; 
-        text-align: center; 
-        margin-bottom: 5px; 
-    } /* styles the one little note about incorporating real data */ 
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-    p { 
-        color: black; 
-        text-align:left; 
-    } /* styles the sentences under each spotify section; keeps it consistent for all of the paragraph text*/
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#gameOfTheDayTitle {
+    color: #333;
+}
+
+.game-photo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-photo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#gameLink {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+#gameLink:hover {
+    text-decoration: underline;
+}
       </style>
 <body>
     <main> 
@@ -102,6 +79,10 @@
             </div>
             <a id="gameLink" href="#" target="_blank">Play Today's Game</a>
         </div>
+        <img src="NYTmini.png" alt="The Mini" style="display: none;">
+        <img src="NYTwordle.png" alt="The Wordle" style="display: none;">
+        <img src="NYTspellingbee.png" alt="The Spelling Bee" style="display: none;">
+        <img src="NYTconnections.png" alt="The Connections" style="display: none;">
     </main>
 </body>
 </html>
