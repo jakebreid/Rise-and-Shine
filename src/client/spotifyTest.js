@@ -54,19 +54,19 @@ async function fetchSpotifyData() {
     //get the playlist 
     const playlistURL = `${baseURL}/playlists/${playlistID}`; 
     const playlistData= await makeRequest(playlistURL, accessToken); 
-    console.log("Playlist: ", playlistData); //prints the playlist Name ("Today's Top Hits")
+    document.getElementById('playlist').textContent = playlistData.name; //sets the text of the playlist ID to "Today's Top Hits"
     //get the artist 
     const artistURL = `${baseURL}/artists/${artistID}`; 
     const artistData= await makeRequest(artistURL, accessToken); 
-    console.log("Artist: ", artistData); //prints the Artist Name (Mac Miller)
+    document.getElementById('artist').textContent = artistData.name; //sets the text of the artist ID to "Mac Miller"
     //get the album 
     const albumURL = `${baseURL}/albums/${albumID}`; 
     const albumData= await makeRequest(albumURL, accessToken); 
-    console.log("Album: ", albumData); //prints the album name (Random Access Memories)
+    document.getElementById('album').textContent = albumData.name; //sets the text of the album ID to "Random Access Memories"
     //get the podcast 
     const podcastURL = `${baseURL}/podcasts/${podcastID}`; 
     const podcastData= await makeRequest(podcastURL, accessToken); 
-    console.log("Podcast: ", podcastData); //prints the podcast name (Crime Junkie)
+    document.getElementById('podcast').textContent = podcastData.name; //sets the text of the Podcast ID to "Crme Junkie"
 }
 
 fetchSpotifyData(); 
