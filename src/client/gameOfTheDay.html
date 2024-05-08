@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game of the Day</title>
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- JavaScript Files -->
+    <script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
+    <script src="gameOfTheDay.js"></script>
+    <!-- standard html format -->
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .grid-container-s {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        padding: 10px;
+        margin-left: 70px;
+    } /*sets a standard styling for all of the grid containers */
+    
+    .grid-item-s {
+        background-color: #e0f7fa;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        padding: 2px;
+        width: 315px;
+        height: 400px; 
+    } /*sets a standard styling for all of the grid items inside of the containers */
+    
+    .grid-item-s:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    } /* on hover, the grid items will have a shadow and transform; consistent styling with weather and stocks */
+    
+    .myPicS {
+        display: grid;
+        width: 150px;
+        height: 150px;
+        margin: 82.5px;
+    } /* styling for the spotify logo; consistent in all of the containers */ 
+    
+    #gameOfTheDayTitle {
+        font-family: 'Helvetica', sans-serif; 
+    font-size: 36px; 
+    color:  #005792;; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px 40px; 
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+    width: 100%; 
+    margin: 0 0 0 -30px; 
+    display: block; 
+}
+    .modBoxy
+    {
+    font-family: 'Arial', sans-serif; 
+    font-size: 20px; 
+    color: #2a8725; 
+    font-weight: bold; 
+    margin: 10px 0; /* Adds space around the text */
+    text-transform: uppercase; 
+    }
+
+    h2 { 
+        color: green; 
+        text-align: center; 
+        margin-bottom: 10px; 
+    } /* styles the headings for each of the spotify sections; keeps it consistent for each heading */ 
+
+    h3 { 
+        color: blue; 
+        text-align: center; 
+        margin-bottom: 5px; 
+    } /* styles the one little note about incorporating real data */ 
+
+    p { 
+        color: black; 
+        text-align:left; 
+    } /* styles the sentences under each spotify section; keeps it consistent for all of the paragraph text*/
+      </style>
+<body>
+    <main> 
+        <header> 
+            <h1 id = "gameOfTheDayTitle">Today's Game Of The Day</h1>
+        </header>
+        <div class="container">
+            <h1>Random Game of the Day</h1>
+            <div class="game-photo">
+                <img id="gameImage" src="" alt="Game of the Day">
+            </div>
+            <a id="gameLink" href="#" target="_blank">Play Today's Game</a>
+        </div>
+    </main>
+</body>
+</html>
