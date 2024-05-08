@@ -14,13 +14,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Serve static files from the 'src/client' directory
-app.use(express.static("src/client"));
 
-// Route to serve the index.html file when the root URL is accessed
-app.get('/', (req, res) => { 
-  res.sendFile(myPath.concat("/src/client/index.html"));
-});
+app.use('/static', express.static('../client'))
 
 const MethodNotAllowedHandler = async (request, response) => {
   response.writeHead(405, { "Content-Type": "text/plain" });
