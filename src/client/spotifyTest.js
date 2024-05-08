@@ -45,23 +45,28 @@ async function makeRequest(url) {
 
 //connect it to featured elements (playlist, artist, podcast, album)
 //because of the scope of my programming abilities + time constraints, these are NOT personalized reccomendations
-async function mainUsage() { 
+async function fetchSpotifyData() { 
+    const accessToken = await getAccessToken(); 
     const playlistID= '37i9dQZF1DXcBWIGoYBM5M'; //"Today's Top Hits"
     const artistID = '4LLpKhyESsyAXpc4laK94U'; // Mac Miller 
     const albumID = '4m2880jivSbbyEGAKfITCa' ; //Random Access Memories by Daft Punk
     const podcastID = '3DgfoleqaW61T2amZQKINx'; // Crime Junkie
     //get the playlist 
-    const playlistINFO = await makeRequest(`${baseURL}/playlists/${playlistID}`); 
-    console.log("Playlist: ", playlistINFO.name); //prints the playlist Name ("Today's Top Hits")
+    const playlistURL = `${baseURL}/playlists/${playlistID}`; 
+    const playlistData= await makeRequest(playlistURL, accessToken); 
+    console.log("Playlist: ", playlistData); //prints the playlist Name ("Today's Top Hits")
     //get the artist 
-    const artistINFO = await makeRequest(`${baseURL}/artists/${artistID}`); 
-    console.log("Artist:" , artistINFO.name); //prints the Artist Name (Mac Miller)
+    const artistURL = `${baseURL}/artists/${artistID}`; 
+    const artistData= await makeRequest(artistURL, accessToken); 
+    console.log("Artist: ", artistData); //prints the Artist Name (Mac Miller)
     //get the album 
-    const albumINFO = await makeRequest(`${baseURL}/albums/${albumID}`); 
-    console.log("Album: ", albumINFO.name); //prints the album name (Random Access Memories)
+    const albumURL = `${baseURL}/albums/${albumID}`; 
+    const albumData= await makeRequest(albumURL, accessToken); 
+    console.log("Album: ", albumData); //prints the album name (Random Access Memories)
     //get the podcast 
-    const podcastINFO = await makeRequest(`${baseURL}/podcasts/${podcastID}`); 
-    console.log("Podcast: ", podcastINFO.name); //prints the podcast name (Crime Junkie)
+    const podcastURL = `${baseURL}/podcasts/${podcastID}`; 
+    const podcastData= await makeRequest(podcastURL, accessToken); 
+    console.log("Podcast: ", podcastData); //prints the podcast name (Crime Junkie)
 }
 
-mainUsage(); 
+fetchSpotifyData(); 
