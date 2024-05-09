@@ -25,7 +25,7 @@ body {
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 #gamesBox{
-    width: 960px;
+    width: 980px;
 }
 #myTitle { /* adds style to tile */
     font-family: 'Arial', sans-serif; 
