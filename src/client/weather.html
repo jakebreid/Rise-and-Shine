@@ -18,7 +18,7 @@ body {
 .grid-container-w {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
+    gap: 30px;
     padding: 20px;
 }
 
@@ -28,7 +28,7 @@ body {
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    width: 250px;
+    width: 270px;
     height: 400px; 
 }
 
@@ -51,7 +51,7 @@ h1 {
 }
 .day-label {
     font-family: 'Arial', sans-serif; 
-    font-size: 20px; 
+    font-size: 26px; 
     color: #0277BD; 
     font-weight: bold; 
     margin: 10px 0; /* Adds space around the text */
@@ -92,9 +92,9 @@ data.list.forEach(element => {
 });
 for (let i = 0; i < weekData.length; i++)
 {
-let pusher = "Weather: " + (weekData[i].weather[0].description) + "\n";
-pusher = pusher + "Temperature: " + weekData[i].main.temp + "\n";
-pusher = pusher + "Humidity: " + weekData[i].main.humidity+ "\n";
+let pusher = "Weather: " + (weekData[i].weather[0].description) + "<br>";
+pusher = pusher + "Temperature: " + weekData[i].main.temp + "<br>";
+pusher = pusher + "Humidity: " + weekData[i].main.humidity+ "<br>";
 pusher = pusher + "Wind Speeds (mph):" + weekData[i].wind.speed;
 let x = "we" + i.toString(); 
 document.getElementById(x).innerHTML = pusher;
@@ -119,11 +119,11 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?lat=42.3&lon=-72.5&units
 .then(res => weatherHandler(res));
 </script>
 <div class="grid-container-w">
-    <div class="grid-item-w"><center class = "day-label" id = 0w>Sunday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we0">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 1w>Monday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we1">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 2w>Tuesday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we2">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 3w>Wednesday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we3">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 4w>Thursday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we4">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 0w>Sunday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we0" class = "weText">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 1w>Monday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we1" class = "weText">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 2w>Tuesday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we2" class = "weText">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 3w>Wednesday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we3" class = "weText">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 4w>Thursday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we4" class = "weText">Weather info here</label></center></div>
   </div>
 </main>
 </body>
