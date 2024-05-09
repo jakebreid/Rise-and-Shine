@@ -43,9 +43,54 @@
     $(function(){
       $("#includedContentNews").load("news.html"); 
     }); 
-    $(function(){
-      $("#includedContentGames").load("gameOfTheDay.html"); 
-    }); 
+    // $(function(){
+    //   $("#includedContentGames").load("gameOfTheDay.html"); 
+    // }); 
+    const games = [
+    { 
+        name: "The Mini", 
+        link: "https://www.nytimes.com/crosswords/game/mini", 
+        image: 'NYTmini.png'
+    }, 
+    { 
+        name: "The Wordle", 
+        link: "https://www.nytimes.com/games/wordle/index.html", 
+        image: 'NYTwordle.png'
+    }, 
+    { 
+        name: "The Spelling Bee", 
+        link: "https://www.nytimes.com/puzzles/spelling-bee", 
+        image: 'NYTspellingbee.png'
+    }, 
+    { 
+        name: "The Connections", 
+        link: "https://www.nytimes.com/games/connections", 
+        image: 'NYTconnections.png'
+        
+    }
+];  //initializes all games in a data structure. For complexity reasons, I am sticking to these four games. 
+
+function getRandomGame(games){ 
+    const randomIndex = Math.floor(Math.random()*games.length); 
+    return games[randomIndex]; //returns a randomly generated index 0-3, representing one of the games 
+}
+
+function updateRandomGame(games){ 
+    const randomGame = getRandomGame(games); 
+   //updates photo 
+   const gameImage = document.getElementById('gameImage'); 
+   gameImage.src = randomGame.image; 
+   //update game link 
+   const gameLink = document.getElementById('gameLink'); 
+   gameLink.href = randomGame.link; 
+   gameLink.textContent = `Play ${randomGame.name}`; 
+}
+//call updateRandomGame when the page loads and updates the random game and the random photo
+window.onload = function(){ 
+    updateRandomGame(games); 
+}; 
+gameTitle =document.getelementbyID("btit"); 
+gameTitle.innerText= `Today's Chosen Game is ${randomGame.name}`; 
     </script> 
 </head>
 <body>
@@ -90,9 +135,9 @@
                         <label class = "box-content">Here we will briefly list reccomended audio options on spotify. When you click on the icon, you will be taken to an in-depth page detailing your reccomended playlists.</label>
                     </div>
                     <div class="grid-item" id = "gamesBox"> 
-                        <h2 class = "box-title">Today's Recommended Game of the Day</h2>
+                        <h2 class = "box-title" id = "btit">Today's Recommended Game of the Day</h2>
                         <center><img src = NYTGames.png class = "myPic"></center>
-                        <label class = "box-content">Here we will list a reccomended mini game to play, such as the NYT Wordle, NYT Mini Crossword, etc</label>
+                        <label class = "box-content">Play Today's Recommended Game!</label>
                     </div>
                 </div> 
             </div>
@@ -124,13 +169,13 @@
                    <div class="home">HOME</div>
                 </nav>
             </div>
-            <div class="view" id="gameView" style="display:none">
+            <!-- <div class="view" id="gameView" style="display:none">
                 <div id="includedContentGames"></div>
                 <br> <br>
                 <nav>
                    <div class="home">HOME</div>
                 </nav>
-            </div>
+            </div> -->
         </div>
         <article>
             <!-- Primary content like a blog post or article -->
