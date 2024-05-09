@@ -36,7 +36,7 @@ function updateRandomGame(games){
    gameLink.href = randomGame.link; 
    gameLink.textContent = `Play ${randomGame.name}`; 
 }
-//call updateRandomGame when the page loads 
+//call updateRandomGame when the page loads and updates the random game and the random photo
 window.onload = function(){ 
     updateRandomGame(games); 
 }; 
