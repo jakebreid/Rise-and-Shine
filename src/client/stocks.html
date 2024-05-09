@@ -25,7 +25,13 @@
     height:250px;
     color:black;
 }
-.stocks{
+.stocks1{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding: 35px;
+}
+.stocks2{
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5px;
@@ -78,7 +84,7 @@
         <header>
             <h1 class = "header-title">Stock Overview</h1>
         </header>
-        <div class="stocks">
+        <div class="stocks1">
             <div class="stocks-item-good">Market: <br><br><br>
                 Stock: <br><br><br>
                 Price: <br><br><br>
@@ -99,7 +105,7 @@
             </div>
         </div>
         <h2>Popular Stocks:</h2>
-        <div class="stocks">
+        <div class="stocks2">
             <div class="stocks-item-bad">Market: <br><br><br>
                 Stock: <br><br><br>
                 Price: <br><br><br>
@@ -137,3 +143,17 @@
         <input type="button" id="add-button" value="Add Stock">
     </main>
 </body>
+<script>
+    let array1 = [];
+    function stockData(stock_array){
+    }
+    function addStockToList(stock_wanted, market_within){
+        fetch(`http://api.marketstack.com/v1/eod?access_key=6d0599420d6f6e673ee8f8a14c76b14a&symbols=${stock_wanted}&exchange=${market_within}`)
+        .then(response => response.json())
+        .then(res => {
+
+        })
+    }
+    let db1 = new PouchDB("stocksDatabase");
+    
+</script>
