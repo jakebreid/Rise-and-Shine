@@ -28,7 +28,7 @@ body {
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    width: 170px;
+    width: 250px;
     height: 400px; 
 }
 
@@ -81,30 +81,49 @@ h1 {
 
 
 <script>
-const date = new Date();
+function weatherHandler(data)
+{
+let weekData = []; 
+data.list.forEach(element => {
+    if (element.dt_txt.indexOf("15:00:00") >= 0)
+    {
+        weekData.push(element);
+    }    
+});
+for (let i = 0; i < weekData.length; i++)
+{
+let pusher = "Weather: " + (weekData[i].weather[0].description) + "\n";
+pusher = pusher + "Temperature: " + weekData[i].main.temp + "\n";
+pusher = pusher + "Humidity: " + weekData[i].main.humidity+ "\n";
+pusher = pusher + "Wind Speeds (mph):" + weekData[i].wind.speed;
+let x = "we" + i.toString(); 
+document.getElementById(x).innerHTML = pusher;
+}
+}
 
+const date = new Date();
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const currentDayOfWeek = daysOfWeek[date.getDay()];
 
 let j = daysOfWeek.indexOf(currentDayOfWeek);
 console.log(`Today is ${currentDayOfWeek}`);
-for (let i = 0; i < 7; i++)
+for (let i = 0; i < 5; i++)
 {
-  let x = i.toString() + "w";
-  document.getElementById(x).innerHTML = daysOfWeek[j];
   j++; 
   j = j % 7; 
+  let x = i.toString() + "w";
+  document.getElementById(x).innerHTML = daysOfWeek[j];
 }
-fetch("https://api.openweathermap.org/data/2.5/forecast?lat=52.5&lon=13.3&appid=")
+fetch("https://api.openweathermap.org/data/2.5/forecast?lat=42.3&lon=-72.5&units=imperial&appid=d9abbcf6d13c2409cc9a607c94b99edc")
+.then(response => response.json())
+.then(res => weatherHandler(res));
 </script>
 <div class="grid-container-w">
-    <div class="grid-item-w"><center class = "day-label" id = 0w>Sunday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "sun">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 1w>Monday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "mon">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 2w>Tuesday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "tue">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 3w>Wednesday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "wed">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 4w>Thursday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "thu">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 5w>Friday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "fri">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 6w>Saturday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "sat">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 0w>Sunday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we0">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 1w>Monday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we1">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 2w>Tuesday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we2">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 3w>Wednesday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we3">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 4w>Thursday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we4">Weather info here</label></center></div>
   </div>
 </main>
 </body>
