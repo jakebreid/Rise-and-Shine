@@ -42,9 +42,9 @@
     $(function(){
       $("#includedContentNews").load("news.html"); 
     });
-    $(function() { 
-        $("#includedContentGame").load("gameOfTheDay.html");
-    });
+    $(function(){ 
+        $("includedContentGames").load("gameOfTheDay.html"); 
+    }); 
     </script> 
 </head>
 <body>
@@ -124,7 +124,7 @@
                 </nav>
             </div>
             <div class="view" id="gameView" style="display:none">
-                <div id="includedContentGame"></div>
+                <div id="includedContentGames"></div>
                 <br> <br>
                 <nav>
                    <div class="home">HOME</div>
