@@ -88,6 +88,23 @@ function updateRandomGame(games){
 window.onload = function(){ 
     updateRandomGame(games); 
 };
+function weatherHandlery(data)
+{
+let pusher = "Weather: " + (data.weather[0].description) + "<br>";
+pusher = pusher + "Temperature: " + (Math.floor(data.main.temp)).toString() + "<br>";
+pusher = pusher + "Humidity: " + data.main.humidity+ "<br>";
+pusher = pusher + "Wind Speeds (mph): " + (Math.floor(data.wind.speed)).toString();
+let x = "curwe"
+document.getElementById(x).innerHTML = pusher;
+let icon = data.weather[0].icon; 
+x = x + "pic";
+document.getElementById(x).src = icon + ".png";
+}
+
+fetch("https://api.openweathermap.org/data/2.5/weather?lat=42.3&lon=-72.5&units=imperial&appid=d9abbcf6d13c2409cc9a607c94b99edc")
+.then(res => res.json())
+.then(res => weatherHandlery(res))
+.catch(console.log("error"));
 </script> 
 </head>
 <style>
@@ -182,8 +199,8 @@ body {
                 <div class="grid-container" id="centralgrid">
                     <div class="grid-item" id = "weatherBox">
                         <h2 class = "box-title">Weather</h2>
-                       <center><img src = myWeather.png class = "myPic"></center>
-                       <label class = "box-content">This is where my description of today's weather will go. The image above will change to reflect the weather.</label>
+                       <center><img src = myWeather.png class = "myPic" id="curwepic"></center>
+                       <label class = "box-content" id = "curwe">This is where my description of today's weather will go. The image above will change to reflect the weather.</label>
                     </div>
                     <div class="grid-item" id = "newsBox">
                         <h2 class = "box-title">News</h2>
