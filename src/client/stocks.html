@@ -37,8 +37,7 @@
     gap: 5px;
     padding: 35px;
 }
-.stocks-item-good{
-    background-color:rgb(64, 208, 134);
+.stocks-item{
     border-radius:10px;
     padding:10px;
     transition: transform 0.25 ease;
@@ -47,7 +46,7 @@
     color:black;
 }
 .stocks-item-bad{
-    background-color:rgb(234, 32, 32);
+    background-color:green;
     border-radius:10px;
     padding:10px;
     transition: transform 0.25 ease;
@@ -55,7 +54,7 @@
     height:250px;
     color:black;
 }
-.stocks-item-good:hover{
+.stocks-item:hover{
     transform: scale(1.05);
 }
 .stocks-item-bad:hover{
@@ -85,19 +84,19 @@
             <h1 class = "header-title">Stock Overview</h1>
         </header>
         <div class="stocks1">
-            <div class="stocks-item-good">Market: <br><br><br>
+            <div class="stocks-item" id="saved_stock1">Market: <br><br><br>
                 Stock: <br><br><br>
                 Price: <br><br><br>
                 Volume: <br><br><br>
                 Time: <br><br><br>
             </div>
-            <div class="stocks-item-bad">Market: <br><br><br>
+            <div class="stocks-item" id="saved_stock2">Market: <br><br><br>
                 Stock: <br><br><br>
                 Price: <br><br><br>
                 Volume: <br><br><br>
                 Time: <br><br><br>
             </div>
-            <div class="stocks-item-bad">Market: <br><br><br>
+            <div class="stocks-item" id="saved_stock3">Market: <br><br><br>
                 Stock: <br><br><br>
                 Price: <br><br><br>
                 Volume: <br><br><br>
@@ -106,26 +105,26 @@
         </div>
         <h2>Popular Stocks:</h2>
         <div class="stocks2">
-            <div class="stocks-item-bad">Market: <br><br><br>
+            <div class="stocks-item" id="featured_stock1">Market: <br><br><br>
                 Stock: <br><br><br>
                 Price: <br><br><br>
                 Volume: <br><br><br>
                 Time: <br><br><br>
             </div>
-            <div class="stocks-item-good">Market: <br><br><br>
+            <div class="stocks-item" id="featured_stock2">Market: <br><br><br>
                 Stock: <br><br><br>
                 Price: <br><br><br>
                 Volume: <br><br><br>
                 Time: <br><br><br>
             </div>
-            <div class="stocks-item-good">Market: <br><br><br>
+            <div class="stocks-item" id="featured_stock3">Market: <br><br><br>
                 Stock: <br><br><br>
                 Price: <br><br><br>
                 Volume: <br><br><br>
                 Time: <br><br><br>
             </div>
         </div>
-        <input type="button" id="add-button" value="Add Stock 1"> <input type="button" id="add-button" value="Add Stock 2"> <input type="button" id="add-button" value="Add Stock 3">
+        <input type="button" id="add-button1" value="Add Stock 1"> <input type="button" id="add-button2" value="Add Stock 2"> <input type="button" id="add-button3" value="Add Stock 3">
         <h2>Find new stocks:</h2>
         <label for="market-input">Market:</label>
         <input type="text" id="market-input" placeholder="NASDAQ">
@@ -133,27 +132,160 @@
         <input type="text" id="stock-input" placeholder="NFLX">
         <input type="button" id="search-button" value="Search">
         <div class="newStock">
-            <div class="newStock-item">Market: <br><br><br>
+            <div class="stocks-item" id="newStock1">Market: <br><br><br>
                 Stock: <br><br><br>
                 Price: <br><br><br>
                 Volume: <br><br><br>
                 Time: <br><br><br></div>
         </div>
-        <h2>If there are not yet three stocks saved at the top of the page: show button</h2>
-        <input type="button" id="add-button" value="Add Stock">
+        <input type="button" id="add-button4" value="Add Stock">
     </main>
 </body>
+
+
+
+
+
 <script>
-    let array1 = [];
-    function stockData(stock_array){
+    const featured_stocks = ["NVDA", "GOOG", "TSLA"];
+    const db2 = new PouchDB("stockDatabase");
+    let stock_array1 = [];
+    for(let i = 0; i<3; i++){
+        fetch(`http://api.marketstack.com/v1/eod?access_key=6d0599420d6f6e673ee8f8a14c76b14a&symbols=${featured_stocks[i]}`)
+        .then(response => response.json())
+        .then(res => {
+            document.getElementById(`featured_stock${i + 1}`).innerHTML = `Market:${res.exchange} <br><br><br> Stock:${res.symbol} <br><br><br> Price:${res.open} <br><br><br> Volume:${res.volume} <br><br><br> Time:${res.date} <br><br><br>`;
+            if(Math.abs(res.open-res.high)>=Math.abs(res.open-res.high)){
+                document.getElementById(`featured_stock${i+1}`).style.backgroundColor = "green";
+            }
+            else{
+                document.getElementById(`featured_stock${i+1}`).style.backgroundColor = "red";
+            }
+        })
     }
-    function addStockToList(stock_wanted, market_within){
+    db2.get("saved_stocks").then(function(doc)
+    {
+        let count = doc.savedstocks.length
+        let stock_count = 1;
+        if(count <= 3){
+            for(stock_string in doc.savedstocks){
+                fetch(`http://api.marketstack.com/v1/eod?access_key=6d0599420d6f6e673ee8f8a14c76b14a&symbols=${stock_string}`)
+                .then(response => response.json())
+                .then(res => {
+                    document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:${res.exchange} <br><br><br> Stock:${res.symbol} <br><br><br> Price:${res.open} <br><br><br> Volume:${res.volume} <br><br><br> Time:${res.date} <br><br><br>`;
+                    if(Math.abs(res.open-res.high)>=Math.abs(res.open-res.high)){
+                        document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "green";
+                    }
+                    else{
+                        document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "red";
+                    }
+                })
+                stock_count++;
+            }
+            while(stock_count < 4){
+                fetch(`http://api.marketstack.com/v1/eod?access_key=6d0599420d6f6e673ee8f8a14c76b14a&symbols=${featured_stocks[stock_count-1]}`)
+                .then(response => response.json())
+                .then(res => {
+                    document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:${res.exchange} <br><br><br> Stock:${res.symbol} <br><br><br> Price:${res.open} <br><br><br> Volume:${res.volume} <br><br><br> Time:${res.date} <br><br><br>`;
+                    if(Math.abs(res.open-res.high)>=Math.abs(res.open-res.high)){
+                        document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "green";
+                    }
+                    else{
+                        document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "red";
+                    }
+                })
+                stock_count++;
+            }
+
+        }
+    }).catch(function () {
+    function askStocks() {
+     newStocks = prompt("What three stocks would you like to have saved?\nPlease Enter up to 3 Stock symbols, separated by spaces:", ""); //prompts the user to input name if its first time
+     if (newStocks !== null && newStocks !== "")
+     {
+        while(newStocks.indexOf(" ") > -1){
+            stock_array1.push(newStocks.substring(0, newStocks.indexOf(" ")));
+            newStocks = newStocks.substring(newStocks.indexOf(" ") + 1);
+        }
+        db.put({_id: "saved_stocks", savedstocks: stock_array1});
+     }
+     else
+     {
+        askStocks();
+     }
+    }
+    askStocks();
+    let count = stock_array1.length
+    let stock_count = 1;
+    if(count <= 3){
+        for(stock_string in stock_array1){
+            fetch(`http://api.marketstack.com/v1/eod?access_key=6d0599420d6f6e673ee8f8a14c76b14a&symbols=${stock_string}`)
+            .then(response => response.json())
+            .then(res => {
+                document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:${res.exchange} <br><br><br> Stock:${res.symbol} <br><br><br> Price:${res.open} <br><br><br> Volume:${res.volume} <br><br><br> Time:${res.date} <br><br><br>`;
+                if(Math.abs(res.open-res.high)>=Math.abs(res.open-res.high)){
+                    document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "green";
+                }
+                else{
+                    document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "red";
+                }
+            })
+            stock_count++;
+        }
+        while(stock_count < 4){
+            fetch(`http://api.marketstack.com/v1/eod?access_key=6d0599420d6f6e673ee8f8a14c76b14a&symbols=${featured_stocks[stock_count-1]}`)
+            .then(response => response.json())
+            .then(res => {
+                document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:${res.exchange} <br><br><br> Stock:${res.symbol} <br><br><br> Price:${res.open} <br><br><br> Volume:${res.volume} <br><br><br> Time:${res.date} <br><br><br>`;
+                if(Math.abs(res.open-res.high)>=Math.abs(res.open-res.high)){
+                    document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "green";
+                }
+                else{
+                    document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "red";
+                }
+            })
+            stock_count++;
+            }
+        }
+    });
+    function addStockFromFeatured(number){
+        document.getElementById(`saved_stock3`).innerHTML = document.getElementById(`saved_stock2`);
+        document.getElementById('saved_stock3').style.backgroundColor = document.getElementById('saved_stock2').style.backgroundColor;
+        document.getElementById(`saved_stock2`).innerHTML = document.getElementById(`saved_stock1`);
+        document.getElementById('saved_stock2').style.backgroundColor = document.getElementById('saved_stock1').style.backgroundColor;
+        document.getElementById(`saved_stock1`).innerHTML = document.getElementById(`featured_stock${number}`);
+        document.getElementById('saved_stock1').style.backgroundColor = document.getElementById(`featured_stock${number}`).style.backgroundColor;
+    }
+    function findNewStock(stock_wanted, market_within){
         fetch(`http://api.marketstack.com/v1/eod?access_key=6d0599420d6f6e673ee8f8a14c76b14a&symbols=${stock_wanted}&exchange=${market_within}`)
         .then(response => response.json())
         .then(res => {
-
+            document.getElementById("newStock1").innerHTML = `Market:${res.exchange} <br><br><br> Stock:${res.symbol} <br><br><br> Price:${res.open} <br><br><br> Volume:${res.volume} <br><br><br> Time:${res.date} <br><br><br>`;
+            if(Math.abs(res.open-res.high)>=Math.abs(res.open-res.high)){
+                document.getElementById(`newStock1`).style.backgroundColor = "green";
+            }
+            else{
+                document.getElementById(`newStock1`).style.backgroundColor = "red";
+            }
         })
     }
-    let db1 = new PouchDB("stocksDatabase");
-    
+    function addNewStock(){
+        if(document.getElementById("newStock1").innerHTML != "Market: <br><br><br>Stock: <br><br><br>Price: <br><br><br>Volume: <br><br><br>Time: <br><br><br>"){
+        document.getElementById(`saved_stock3`).innerHTML = document.getElementById(`saved_stock2`);
+        document.getElementById('saved_stock3').style.backgroundColor = document.getElementById('saved_stock2').style.backgroundColor;
+        document.getElementById(`saved_stock2`).innerHTML = document.getElementById(`saved_stock1`);
+        document.getElementById('saved_stock2').style.backgroundColor = document.getElementById('saved_stock1').style.backgroundColor;
+        document.getElementById(`saved_stock1`).innerHTML = document.getElementById(`newStock1`);
+        document.getElementById('saved_stock1').style.backgroundColor = document.getElementById(`newStock1`).style.backgroundColor;
+        }
+    }
+    document.getElementById("add-button1").addEventListener("click", () => addStockFromFeatured(1));
+    document.getElementById("add-button2").addEventListener("click", () => addStockFromFeatured(2));
+    document.getElementById("add-button3").addEventListener("click", () => addStockFromFeatured(3));
+    document.getElementById("add-button4").addEventListener("click", () => addNewStock);
+    document.getElementById("search-button").addEventListener("click", () =>{
+        if(document.getElementById("market-input").value != "" && document.getElementById("stock-input").value != ""){
+            findNewStock(document.getElementById("stock-input").value, document.getElementById("market-input").value);
+        }
+    });
 </script>
