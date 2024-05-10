@@ -15,7 +15,7 @@ const clientID= '18639efb094a4225ba13cff44084544e';
 const clientSecret = '3fcd5395f6464ac182d28227fd8e5edf'; 
 //endpoint URLS 
 const tokenURL = 'https://accounts.spotify.com/api/token'; 
-const baseURL = 'https://api.spotify.com/v1'; 
+const baseURL = ' https://api.spotify.com.'; 
 
 //async function to get the access token 
 async function getAccessToken() { 
