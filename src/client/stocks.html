@@ -151,11 +151,12 @@
     const db2 = new PouchDB("stockDatabase");
     let stock_array1 = [];
     for(let i = 0; i<3; i++){
-        fetch(`http://api.marketstack.com/v1/eod?access_key=6d0599420d6f6e673ee8f8a14c76b14a&symbols=${featured_stocks[i]}`)
+        fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock_array[i]}&apikey=ACTOFPC30X4LD71D`)
         .then(response => response.json())
         .then(res => {
-            document.getElementById(`featured_stock${i + 1}`).innerHTML = `Market:${res.exchange} <br><br><br> Stock:${res.symbol} <br><br><br> Price:${res.open} <br><br><br> Volume:${res.volume} <br><br><br> Time:${res.date} <br><br><br>`;
-            if(Math.abs(res.open-res.high)>=Math.abs(res.open-res.high)){
+            let date = res["Meta Data"]["3. Last Refreshed"];
+            document.getElementById(`featured_stock${i + 1}`).innerHTML = `Market:US Exchange <br><br><br> Stock:${res["Meta Data"]["2. Symbol"]} <br><br><br> Price:${res["Time Series (Daily)"]["date"]["1. open"]} <br><br><br> Volume:${res["Time Series (Daily)"]["date"]["6. volume"]} <br><br><br> Time:${date} <br><br><br>`;
+            if(Math.abs(res["Time Series (Daily)"]["date"]["1. open"]-res["Time Series (Daily)"]["date"]["2. high"])>=Math.abs(res["Time Series (Daily)"]["date"]["1. open"]-res["Time Series (Daily)"]["date"]["3. low"])){
                 document.getElementById(`featured_stock${i+1}`).style.backgroundColor = "green";
             }
             else{
@@ -169,11 +170,12 @@
         let stock_count = 1;
         if(count <= 3){
             for(stock_string in doc.savedstocks){
-                fetch(`http://api.marketstack.com/v1/eod?access_key=6d0599420d6f6e673ee8f8a14c76b14a&symbols=${stock_string}`)
+                fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock_string}&apikey=ACTOFPC30X4LD71D`)
                 .then(response => response.json())
                 .then(res => {
-                    document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:${res.exchange} <br><br><br> Stock:${res.symbol} <br><br><br> Price:${res.open} <br><br><br> Volume:${res.volume} <br><br><br> Time:${res.date} <br><br><br>`;
-                    if(Math.abs(res.open-res.high)>=Math.abs(res.open-res.high)){
+                    let date = res["Meta Data"]["3. Last Refreshed"];
+                    document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:US Exchange <br><br><br> Stock:${res["Meta Data"]["2. Symbol"]} <br><br><br> Price:${res["Time Series (Daily)"]["date"]["1. open"]} <br><br><br> Volume:${res["Time Series (Daily)"]["date"]["6. volume"]} <br><br><br> Time:${date} <br><br><br>`;
+                    if(Math.abs(res["Time Series (Daily)"]["date"]["1. open"]-res["Time Series (Daily)"]["date"]["2. high"])>=Math.abs(res["Time Series (Daily)"]["date"]["1. open"]-res["Time Series (Daily)"]["date"]["3. low"])){
                         document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "green";
                     }
                     else{
@@ -183,11 +185,12 @@
                 stock_count++;
             }
             while(stock_count < 4){
-                fetch(`http://api.marketstack.com/v1/eod?access_key=6d0599420d6f6e673ee8f8a14c76b14a&symbols=${featured_stocks[stock_count-1]}`)
+                fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${featured_stocks[stock_count-1]}&apikey=ACTOFPC30X4LD71D`)
                 .then(response => response.json())
                 .then(res => {
-                    document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:${res.exchange} <br><br><br> Stock:${res.symbol} <br><br><br> Price:${res.open} <br><br><br> Volume:${res.volume} <br><br><br> Time:${res.date} <br><br><br>`;
-                    if(Math.abs(res.open-res.high)>=Math.abs(res.open-res.high)){
+                    let date = res["Meta Data"]["3. Last Refreshed"];
+                    document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:US Exchange <br><br><br> Stock:${res["Meta Data"]["2. Symbol"]} <br><br><br> Price:${res["Time Series (Daily)"]["date"]["1. open"]} <br><br><br> Volume:${res["Time Series (Daily)"]["date"]["6. volume"]} <br><br><br> Time:${date} <br><br><br>`;
+                    if(Math.abs(res["Time Series (Daily)"]["date"]["1. open"]-res["Time Series (Daily)"]["date"]["2. high"])>=Math.abs(res["Time Series (Daily)"]["date"]["1. open"]-res["Time Series (Daily)"]["date"]["3. low"])){
                         document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "green";
                     }
                     else{
@@ -219,11 +222,12 @@
     let stock_count = 1;
     if(count <= 3){
         for(stock_string in stock_array1){
-            fetch(`http://api.marketstack.com/v1/eod?access_key=6d0599420d6f6e673ee8f8a14c76b14a&symbols=${stock_string}`)
+            fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock_string}&apikey=ACTOFPC30X4LD71D`)
             .then(response => response.json())
             .then(res => {
-                document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:${res.exchange} <br><br><br> Stock:${res.symbol} <br><br><br> Price:${res.open} <br><br><br> Volume:${res.volume} <br><br><br> Time:${res.date} <br><br><br>`;
-                if(Math.abs(res.open-res.high)>=Math.abs(res.open-res.high)){
+                let date = res["Meta Data"]["3. Last Refreshed"];
+                document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:US Exchange <br><br><br> Stock:${res["Meta Data"]["2. Symbol"]} <br><br><br> Price:${res["Time Series (Daily)"]["date"]["1. open"]} <br><br><br> Volume:${res["Time Series (Daily)"]["date"]["6. volume"]} <br><br><br> Time:${date} <br><br><br>`;
+                if(Math.abs(res["Time Series (Daily)"]["date"]["1. open"]-res["Time Series (Daily)"]["date"]["2. high"])>=Math.abs(res["Time Series (Daily)"]["date"]["1. open"]-res["Time Series (Daily)"]["date"]["3. low"])){
                     document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "green";
                 }
                 else{
@@ -233,11 +237,12 @@
             stock_count++;
         }
         while(stock_count < 4){
-            fetch(`http://api.marketstack.com/v1/eod?access_key=6d0599420d6f6e673ee8f8a14c76b14a&symbols=${featured_stocks[stock_count-1]}`)
+            fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${featured_stocks[stock_count-1]}&apikey=ACTOFPC30X4LD71D`)
             .then(response => response.json())
             .then(res => {
-                document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:${res.exchange} <br><br><br> Stock:${res.symbol} <br><br><br> Price:${res.open} <br><br><br> Volume:${res.volume} <br><br><br> Time:${res.date} <br><br><br>`;
-                if(Math.abs(res.open-res.high)>=Math.abs(res.open-res.high)){
+                let date = res["Meta Data"]["3. Last Refreshed"];
+                document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:US Exchange <br><br><br> Stock:${res["Meta Data"]["2. Symbol"]} <br><br><br> Price:${res["Time Series (Daily)"]["date"]["1. open"]} <br><br><br> Volume:${res["Time Series (Daily)"]["date"]["6. volume"]} <br><br><br> Time:${date} <br><br><br>`;
+                if(Math.abs(res["Time Series (Daily)"]["date"]["1. open"]-res["Time Series (Daily)"]["date"]["2. high"])>=Math.abs(res["Time Series (Daily)"]["date"]["1. open"]-res["Time Series (Daily)"]["date"]["3. low"])){
                     document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "green";
                 }
                 else{
@@ -256,12 +261,13 @@
         document.getElementById(`saved_stock1`).innerHTML = document.getElementById(`featured_stock${number}`);
         document.getElementById('saved_stock1').style.backgroundColor = document.getElementById(`featured_stock${number}`).style.backgroundColor;
     }
-    function findNewStock(stock_wanted, market_within){
-        fetch(`http://api.marketstack.com/v1/eod?access_key=6d0599420d6f6e673ee8f8a14c76b14a&symbols=${stock_wanted}&exchange=${market_within}`)
+    function findNewStock(stock_wanted){
+        fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock_wanted}&apikey=ACTOFPC30X4LD71D`)
         .then(response => response.json())
         .then(res => {
-            document.getElementById("newStock1").innerHTML = `Market:${res.exchange} <br><br><br> Stock:${res.symbol} <br><br><br> Price:${res.open} <br><br><br> Volume:${res.volume} <br><br><br> Time:${res.date} <br><br><br>`;
-            if(Math.abs(res.open-res.high)>=Math.abs(res.open-res.high)){
+            let date = res["Meta Data"]["3. Last Refreshed"];
+            document.getElementById("newStock1").innerHTML = `Market:US Exchange <br><br><br> Stock:${res["Meta Data"]["2. Symbol"]} <br><br><br> Price:${res["Time Series (Daily)"]["date"]["1. open"]} <br><br><br> Volume:${res["Time Series (Daily)"]["date"]["6. volume"]} <br><br><br> Time:${date} <br><br><br>`;
+            if(Math.abs(res["Time Series (Daily)"]["date"]["1. open"]-res["Time Series (Daily)"]["date"]["2. high"])>=Math.abs(res["Time Series (Daily)"]["date"]["1. open"]-res["Time Series (Daily)"]["date"]["3. low"])){
                 document.getElementById(`newStock1`).style.backgroundColor = "green";
             }
             else{
@@ -284,8 +290,8 @@
     document.getElementById("add-button3").addEventListener("click", () => addStockFromFeatured(3));
     document.getElementById("add-button4").addEventListener("click", () => addNewStock);
     document.getElementById("search-button").addEventListener("click", () =>{
-        if(document.getElementById("market-input").value != "" && document.getElementById("stock-input").value != ""){
-            findNewStock(document.getElementById("stock-input").value, document.getElementById("market-input").value);
+        if(document.getElementById("stock-input").value != ""){
+            findNewStock(document.getElementById("stock-input").value);
         }
     });
 </script>
