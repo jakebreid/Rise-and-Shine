@@ -151,7 +151,7 @@
     const db2 = new PouchDB("stockDatabase");
     let stock_array1 = [];
     for(let i = 0; i<3; i++){
-        fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock_array[i]}&apikey=ACTOFPC30X4LD71D`)
+        fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${featured_stocks[i]}&apikey=ACTOFPC30X4LD71D`)
         .then(response => response.json())
         .then(res => {
             let date = res["Meta Data"]["3. Last Refreshed"];
