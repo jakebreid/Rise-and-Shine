@@ -39,9 +39,10 @@ body {
 
 .myPicW
 {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     margin: 10px;
+    align-content: center;
 }
 
 h1 {
@@ -70,19 +71,26 @@ h1 {
     margin: 0 0 0 -30px; 
     display: block; 
 }
+.weText {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    font-weight: 600;   
+    color:#487492;
+}
 
 
   </style>
 <body>
 <main>
 <header>
-   <center> <h1 class = "header-title">Weekly Weather Outlook</h1> </center>
+   <center> <h1 class = "header-title" id = "heady">Weekly Weather Outlook</h1> </center>
 </header>
 
 
 <script>
 function weatherHandler(data)
 {
+document.getElementById("heady").innerHTML = "Weather Forecast: " + data.city.name.toString();
 let weekData = []; 
 data.list.forEach(element => {
     if (element.dt_txt.indexOf("15:00:00") >= 0)
@@ -93,11 +101,14 @@ data.list.forEach(element => {
 for (let i = 0; i < weekData.length; i++)
 {
 let pusher = "Weather: " + (weekData[i].weather[0].description) + "<br>";
-pusher = pusher + "Temperature: " + weekData[i].main.temp + "<br>";
+pusher = pusher + "Temperature: " + (Math.floor(weekData[i].main.temp)).toString() + "<br>";
 pusher = pusher + "Humidity: " + weekData[i].main.humidity+ "<br>";
-pusher = pusher + "Wind Speeds (mph):" + weekData[i].wind.speed;
+pusher = pusher + "Wind Speeds (mph): " + (Math.floor(weekData[i].wind.speed)).toString();
 let x = "we" + i.toString(); 
 document.getElementById(x).innerHTML = pusher;
+let icon = weekData[i].weather[0].icon; 
+x = x + "pic";
+document.getElementById(x).src = icon + ".png";
 }
 }
 
@@ -119,11 +130,11 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?lat=42.3&lon=-72.5&units
 .then(res => weatherHandler(res));
 </script>
 <div class="grid-container-w">
-    <div class="grid-item-w"><center class = "day-label" id = 0w>Sunday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we0" class = "weText">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 1w>Monday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we1" class = "weText">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 2w>Tuesday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we2" class = "weText">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 3w>Wednesday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we3" class = "weText">Weather info here</label></center></div>
-    <div class="grid-item-w"><center class = "day-label" id = 4w>Thursday</center><img src = "myWeather.png" class = "myPicW"><center><label id = "we4" class = "weText">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 0w>Sunday</center><center><img src = "myWeather.png" class = "myPicW" id = "we0pic"></center><center><label id = "we0" class = "weText">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 1w>Monday</center><center><img src = "myWeather.png" class = "myPicW" id = "we1pic"><center></center><label id = "we1" class = "weText">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 2w>Tuesday</center><center><img src = "myWeather.png" class = "myPicW" id = "we2pic"><center></center><label id = "we2" class = "weText">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 3w>Wednesday</center><center><img src = "myWeather.png" class = "myPicW" id = "we3pic"><center></center><label id = "we3" class = "weText">Weather info here</label></center></div>
+    <div class="grid-item-w"><center class = "day-label" id = 4w>Thursday</center><center><img src = "myWeather.png" class = "myPicW" id = "we4pic"><center></center><label id = "we4" class = "weText">Weather info here</label></center></div>
   </div>
 </main>
 </body>
