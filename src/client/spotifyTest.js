@@ -209,13 +209,13 @@ async function getAlbum(albumId, accessToken) {
         return data;
     }
 
-    // Function to fetch a random album from the list of artist options
-    function getRandomAlbum(albumOptions) {
+// Function to fetch a random album from the list of artist options
+function getRandomAlbum(albumOptions) {
         const randomIndex = Math.floor(Math.random() * albumOptions.length);
         return albumOptions[randomIndex];
     }
 
-    // Function to update the random album on the page
+// Function to update the random album on the page
 async function updateRandomAlbum(albumOptions) {
 const accessToken = await getAccessToken();
 const randomAlbum = getRandomAlbum(albumOptions);
@@ -257,5 +257,5 @@ async function main() {
             console.error("Error:", error);
         }
     }
-    // Call the main function
-    main();
+// Call the main function
+main();
