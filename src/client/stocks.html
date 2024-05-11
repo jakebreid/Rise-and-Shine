@@ -162,6 +162,7 @@
             }
         })
     }
+    let newStocks = "";
     db2.get("saved_stocks").then(function(doc)
     {
         let count = doc.savedstocks.length
@@ -201,7 +202,7 @@
         }
     }).catch(function () {
     function askStocks() {
-    let newStocks = prompt("What three stocks would you like to have saved?\nPlease Enter up to 3 Stock symbols, separated by spaces:", ""); //prompts the user to input name if its first time
+    newStocks = prompt("What three stocks would you like to have saved?\nPlease Enter up to 3 Stock symbols, separated by spaces:", ""); //prompts the user to input name if its first time
      if (newStocks !== null && newStocks !== "")
      {
         while(newStocks.indexOf(" ") > -1){
@@ -218,6 +219,8 @@
     askStocks();
     let count = stock_array1.length
     let stock_count = 1;
+    let newCount = 0;
+    if(count <= 3){
     for(stock_string in stock_array1){
         fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock_string}&apikey=ACTOFPC30X4LD71D`)
         .then(response => response.json())
@@ -232,9 +235,10 @@
             }
         })
         stock_count++;
-    }
+    }}
     while(stock_count < 4){
-        fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${featured_stocks[stock_count-1]}&apikey=ACTOFPC30X4LD71D`)
+        newCount = stock_count-1
+        fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${featured_stocks[newCount]}&apikey=ACTOFPC30X4LD71D`)
         .then(response => response.json())
         .then(res => {
             let date = res["Meta Data"]["3. Last Refreshed"];
