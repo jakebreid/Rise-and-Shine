@@ -5,17 +5,16 @@
  const apiUrl = 'https://api.spotify.com/v1';
 
  // Function to get access token
- async function getAccessToken() {
-     const response = await fetch(authUrl, {
-         method: 'POST',
-         headers: {
-             'Content-Type': 'application/x-www-form-urlencoded',
-             'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret)
-         },
-         body: 'grant_type=client_credentials'
-     });
-     const data = await response.json();
-     return data.access_token;
+ async function getAccessToken(){ 
+    const response = await fetch(authUrl, { 
+        method: 'POST', 
+        headers: { 
+            'Content-Type': 'application/x-www-form-urlencoded',
+        }, 
+        body: 'grant_type=client_credentials'
+    });
+    const data = await response.json(); 
+    return data.access_token;
  }
 
  // Function to search for playlists
