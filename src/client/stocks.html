@@ -167,6 +167,7 @@
     {
         let count = doc.savedstocks.length
         let stock_count = 1;
+        let newCount = 0;
         if(count <= 3){
             for(stock_string in doc.savedstocks){
                 fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock_string}&apikey=ACTOFPC30X4LD71D`)
@@ -184,7 +185,8 @@
                 stock_count++;
             }
             while(stock_count < 4){
-                fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${featured_stocks[stock_count-1]}&apikey=ACTOFPC30X4LD71D`)
+                newCount = stock_count - 1;
+                fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${featured_stocks[newCount]}&apikey=ACTOFPC30X4LD71D`)
                 .then(response => response.json())
                 .then(res => {
                     let date = res["Meta Data"]["3. Last Refreshed"];
