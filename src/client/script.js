@@ -24,10 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize with the home view
     navigate("homeView");
  
-    const category = document.getElementById(categories);    
-    document.getElementById("search").addEventListener("click", () => {
-        let str = category.value;
-    });
 });
 
 /**

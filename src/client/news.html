@@ -6,6 +6,7 @@
     <title>Weather Overview</title>
     <link rel="stylesheet" href="styles.css">
     <script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
+    <script src="./news.js" type="module"></script>
 </head>
 <style>
 
@@ -64,6 +65,8 @@
     <div class="newsGrid">
         <div class="newsItem" id="NYT">
             <center><label class="outlet">New York Times Stories</label></center>
+            <br> <br>
+            <center><label class="article" id="articleNYT">Article Info Here</label></center>
         </div>
         <div class="newsItem" id="Guardian">
             <center><label class="outlet">The Guardian Stories</label></center>
@@ -75,13 +78,13 @@
 
     <center><div>
         <select id="categories">
-            <option class="category" value="Arts">Arts</option>
-            <option class="category" value="Business">Business</option>
-            <option class="category" value="Health">Health</option>
-            <option class="category" value="Politics">Politics</option>
-            <option class="category" value="Sports">Sports</option>
-            <option class="category" value="Technology">Technology</option>
-            <option class="category" value="World">World</option>
+            <option class="category" value="arts">Arts</option>
+            <option class="category" value="business">Business</option>
+            <option class="category" value="health">Health</option>
+            <option class="category" value="politics">Politics</option>
+            <option class="category" value="sports">Sports</option>
+            <option class="category" value="technology">Technology</option>
+            <option class="category" value="world">World</option>
         </select>
 
         <button id="search">Search</button>
