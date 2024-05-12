@@ -197,6 +197,8 @@ async function updateRandomArtist(artistOptions) {
         console.log("Random Artist Name:", artistName); 
         const artistDiv = document.getElementById("artist"); 
         artistDiv.innerHTML = `<p>${artistName}</p>`; 
+        const artistNameElement = document.getElementById("artistName"); 
+        artistNameElement.textContent = artistName; 
     } catch (error) { 
         console.error("Error fetching artist:", error); 
     }
@@ -366,7 +368,9 @@ async function updateRandomAlbum(artistOptions) {
         console.log("Random Album Name:", albumName, "By: ", artistOfAlbum);
         //display the album on the HTML page 
         const albumDiv = document.getElementById("album"); 
-        albumDiv.innerHTML = `<p>${albumName} By ${artistOfAlbum}</p>`; 
+        albumDiv.innerHTML = `<p>${albumName} By ${artistOfAlbum}</p>`;
+        const albumNameElement = document.getElementById("albumName");  
+        albumNameElement.textContent = `${albumName} By ${artistOfAlbum}`; 
     } catch (error) { 
         console.error("Error fetching album:", error); 
     }
@@ -394,6 +398,8 @@ async function main(){
             console.log("Playlist Name:", playlistDetails.name); //console debugging
             console.log("Number of Tracks:", playlistDetails.tracks.total); //console debugging 
             displaySongs(playlistDetails); //displays the tracks and artist of the tracks in the playlist
+            const playlistNameElement = document.getElementById("playlistName"); 
+            playlistNameElement.textContent = playlistDetails.name; 
         } else { //if playlist is not found
             console.log("Top 50-Global Playlist not found.")
         }

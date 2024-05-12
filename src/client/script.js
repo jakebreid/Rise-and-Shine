@@ -26,24 +26,40 @@ document.addEventListener("DOMContentLoaded", () => {
  
 });
 
-/**
- * Get location data with user permission
- * @param {*} position 
- */
-const successCallback = (position) => {
-  console.log(position);
+
+//LINDSEY WORKSPACE HERE 
+//JAKE CODE BELOW
+
+function weatherHandlery(data)
+{
+let today = data.list[0];
+
+let pusher = "Weather: " + (today.weather[0].description) + "<br>";
+pusher = pusher + "Temperature: " + (Math.floor(today.main.temp)).toString() + "<br>";
+pusher = pusher + "Humidity: " + today.main.humidity+ "<br>";
+let x = "curwe"
+document.getElementById(x).innerHTML = pusher;
+let icon = today.weather[0].icon; 
+x = x + "pic";
+icon = icon.toString(); 
+icon = icon.substring(0, 2) + "d";
+document.getElementById(x).src = icon + ".png";
+}
+
+async function successCallback(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=d9abbcf6d13c2409cc9a607c94b99edc`);
+  let result = await response.json();
+  console.log(result);
+  weatherHandlery(result);
 };
 
 const errorCallback = (error) => {
   console.log(error);
 };
 
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-//LINDSEY WORKSPACE HERE 
-//JAKE CODE BELOW
-
-
-
+navigator.geolocation.watchPosition(successCallback, errorCallback);
 
 
 
