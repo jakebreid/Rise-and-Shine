@@ -1,4 +1,3 @@
-<!DOCTYPE html> 
 <html lang="en">
     <head> 
         <meta charset="UTF-8">
@@ -47,7 +46,7 @@
         transition: transform 0.3 ease; 
     }
     .myPicS:hover{ 
-        transform: scale(1.1); 
+        transform: scale(0.95); 
     }
     #spotTitle{ 
         font-family: 'Helvetica', sans-serif;
@@ -81,8 +80,17 @@
         text-align: left;
         margin-bottom: 10px;
     }
+    #playlistName{ 
+        text-align: center;
+    }
+    #albumName{ 
+        text-align: center;
+    }
+    #artistName{ 
+        text-align: center;
+    }
     </style>
-    <body> 
+     <body> 
         <main> 
             <header> 
                 <h1 id="spotTitle">Today's Spotify Recommended</h1>
@@ -93,18 +101,21 @@
                     <a href="https://open.spotify.com/playlist/37i9dQZEVXbMDoHDwVN2tF?si=51e61373cd224ea1" id="playlistLink" target="_blank">
                         <img src="spotify.png" class="myPicS">
                     </a>
+                    <p id="playlistName"></p>
                 </div>
                 <div class ="grid-item-s"> 
                     <center class="modBoxy">A Highly Rated Album</center>
                     <a href="#" id="albumLink" target="_blank">
                         <img src="spotify.png" class="myPicS"> 
                     </a>
+                    <p id="albumName"></p>
                 </div>
                 <div class="grid-item-s"> 
                     <center class="modBoxy">Artist Highlight</center>
                     <a href="#" id="artistLink" target="_blank">
                         <img src="spotify.png" class="myPicS"> 
                     </a>
+                    <p id="artistName"></p>
                 </div>
             </div>
             <h2>Trending Songs Playlist</h2>
@@ -116,3 +127,4 @@
         </main>
     </body>
 </html>
+
