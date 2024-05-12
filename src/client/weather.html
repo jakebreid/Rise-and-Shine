@@ -126,11 +126,8 @@ for (let i = 0; i < 5; i++)
   document.getElementById(x).innerHTML = daysOfWeek[j];
 }
 async function successCallback(position) {
-  console.log(position);
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let coords = {lat, lon};
-  console.log(coords);
   let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=d9abbcf6d13c2409cc9a607c94b99edc`);
   let result = await response.json();
   weatherHandler(result);
