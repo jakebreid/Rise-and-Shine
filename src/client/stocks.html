@@ -157,9 +157,11 @@
             document.getElementById(`saved_stock${i + 1}`).innerHTML = `Market:US Exchange <br><br><br> Stock:${res["Meta Data"]["2. Symbol"]} <br><br><br> Price:${res["Time Series (Daily)"][date]["1. open"]} <br><br><br> Volume:${res["Time Series (Daily)"][date]["6. volume"]} <br><br><br> Time:${date} <br><br><br>`;
             if(Math.abs(res["Time Series (Daily)"][date]["1. open"]-res["Time Series (Daily)"][date]["2. high"])>=Math.abs(res["Time Series (Daily)"][date]["1. open"]-res["Time Series (Daily)"][date]["3. low"])){
                 document.getElementById(`featured_stock${i+1}`).style.backgroundColor = "green";
+                document.getElementById(`saved_stock${i+1}`).style.backgroundColor = "green";
             }
             else{
                 document.getElementById(`featured_stock${i+1}`).style.backgroundColor = "red";
+                document.getElementById(`saved_stock${i+1}`).style.backgroundColor = "red";
             }
         })
     }
