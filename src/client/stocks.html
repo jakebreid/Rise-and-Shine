@@ -200,7 +200,7 @@
     document.getElementById("add-button1").addEventListener("click", () => addStockFromFeatured(1));
     document.getElementById("add-button2").addEventListener("click", () => addStockFromFeatured(2));
     document.getElementById("add-button3").addEventListener("click", () => addStockFromFeatured(3));
-    document.getElementById("add-button4").addEventListener("click", () => addNewStock);
+    document.getElementById("add-button4").addEventListener("click", () => addNewStock());
     document.getElementById("search-button").addEventListener("click", () =>{
         if(document.getElementById("stock-input").value != ""){
             findNewStock(document.getElementById("stock-input").value);
