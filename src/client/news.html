@@ -56,6 +56,13 @@
     margin: 10px 0; /* Adds space around the text */
 }
 
+.thumbnail {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    align-content: center;
+}
+
 </style>
 <body>
 <center>
@@ -67,9 +74,16 @@
             <center><label class="outlet">New York Times Stories</label></center>
             <br> <br>
             <center><label class="article" id="articleNYT">Article Info Here</label></center>
+            <img src="newspaper.png" class="thumbnail" id="picNYT">
+            <center><a class="link" id="linkNYT" href="#">Article Link Here</a></center>
+
         </div>
         <div class="newsItem" id="Guardian">
             <center><label class="outlet">The Guardian Stories</label></center>
+            <br> <br>
+            <center><label class="article" id="articleGuardian">Article Info Here</label></center>
+            <img src="newspaper.png" class="thumbnail" id="picGuardian">
+            <center><a class="link" id="linkGuardian" href="#" >Article Link Here</a></center>
         </div>
         <div class="newsItem" id="theNewsAPI">
             <center><label class="outlet">Miscellaneous News</label></center>
