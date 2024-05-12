@@ -13,24 +13,6 @@
     <script> 
     const db = new PouchDB("mydatabase");
     let newUser = "";
-    db.get("user").then(function(doc)
-    {
-        document.getElementById("myTitle").innerHTML = "Rise and Shine, " + doc.username + "!"; //sets name of user at header if it is not first time 
-    }).catch(function () {
-    function askName() {
-     newUser = prompt("Greetings! We recognize this is your first time here!\nPlease Enter Your Name:", ""); //prompts the user to input name if its first time
-     if (newUser !== null && newUser !== "")
-     {
-        db.put({_id: "user", username: newUser});
-     }
-     else
-     {
-        askName();
-     }
-    }
-    askName();
-    document.getElementById("myTitle").innerHTML = "Rise and Shine, " +  newUser + "!";
-}); //sets title 
 
     $(function(){
       $("#includedContentWeather").load("weather.html"); //creates multiview and loads it 
@@ -109,6 +91,70 @@ fetch("https://api.openweathermap.org/data/2.5/weather?lat=42.3&lon=-72.5&units=
 .then(res => res.json())
 .then(res => weatherHandlery(res))
 .catch(console.log("error"));
+
+const URL = "http://localhost:3260"; // URL of our server
+
+function askName() {
+     let newUser = prompt("Greetings! We recognize this is your first time here!\nPlease Enter Your Name:", ""); //prompts the user to input name if its first time
+     if (newUser !== null && newUser !== "")
+     {
+        return newUser;
+     }
+     else
+     {
+        askName();
+     }
+    }
+
+// Function to handle create 
+async function createMe() {
+  const name = askName();
+  const response = await fetch(`${URL}/create?name=${name}`, {
+    method: "POST",
+  });
+}
+
+// Function to handle read 
+async function readMe() {
+  const response = await fetch(`${URL}/read?name=${name}`, { method: "GET" });
+  if (response.status == 404)
+  {
+    createMe();
+    readMe();
+  }
+  const data = await response.text();
+  document.getElementById("myTitle").innerHTML = "Rise and Shine, " + data+ "!"; //check response.username;
+}
+
+// Function to handle update counter action
+async function updateMe() {
+  const name = prompt("Time to change your name! What would you like it to be!");
+
+  const response = await fetch(`${URL}/update?name=${name}`, {
+    method: "PUT",
+  });
+  const data = await response.text();
+  console.log(data);
+  readMe();
+}
+
+// Function to handle delete counter action
+async function deleteMe() {
+  const name = "user";
+  if (!name) {
+    alert("Name is required!");
+    return;
+  }
+
+  const response = await fetch(`${URL}/delete?name=${name}`, {
+    method: "DELETE",
+  });
+  const data = await response.text();
+  document.getElementById("myTitle").innerHTML = "Rise and Shine!";
+}
+
+
+readMe();
 </script> 
 </head>
 <style>
@@ -242,6 +288,8 @@ body {
                         <!-- <h2 class = "box-title" id = "btit">Today's Recommended Game of the Day</h2>
                         <center><img src = NYTGames.png class = "myPic" id="gameImage"></center>
                         <label class = "box-content">Play Today's Recommended Game!</label> -->
+                       <br> <br><center> <button id = "updateBtn" class = "home">Update Name</button>
+                        <button id = "deleteBtn" class = "home">Delete Name</button></center>
                     </div>
                 </div> 
             </div>
@@ -298,4 +346,8 @@ body {
         <!-- Footer content like copyright, links to privacy policy, etc. -->
     </footer>
 </body>
+<script>
+document.getElementById("updateBtn").addEventListener("click", updateMe);
+document.getElementById("deleteBtn").addEventListener("click", deleteMe);
+</script>
 </html>
