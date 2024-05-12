@@ -91,24 +91,6 @@ document.addEventListener("DOMContentLoaded", function() {
         updateRandomGame(games);
 });
 
-function weatherHandlery(data)
-{
-let pusher = "Weather: " + (data.weather[0].description) + "<br>";
-pusher = pusher + "Temperature: " + (Math.floor(data.main.temp)).toString() + "<br>";
-pusher = pusher + "Humidity: " + data.main.humidity+ "<br>";
-let x = "curwe"
-document.getElementById(x).innerHTML = pusher;
-let icon = data.weather[0].icon; 
-x = x + "pic";
-icon = icon.toString(); 
-icon = icon.substring(0, 2) + "d";
-document.getElementById(x).src = icon + ".png";
-}
-
-fetch("https://api.openweathermap.org/data/2.5/weather?lat=42.3&lon=-72.5&units=imperial&appid=d9abbcf6d13c2409cc9a607c94b99edc")
-.then(res => res.json())
-.then(res => weatherHandlery(res))
-.catch(console.log("error"));
 </script> 
 </head>
 <style>
