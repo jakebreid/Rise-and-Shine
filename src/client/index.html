@@ -29,7 +29,9 @@
      }
     }
     askName();
-    document.getElementById("myTitle").innerHTML = "Rise and Shine, " +  newUser + "!"}); //sets title 
+    document.getElementById("myTitle").innerHTML = "Rise and Shine, " +  newUser + "!";
+}); //sets title 
+
     $(function(){
       $("#includedContentWeather").load("weather.html"); //creates multiview and loads it 
     });
@@ -94,11 +96,12 @@ function weatherHandlery(data)
 let pusher = "Weather: " + (data.weather[0].description) + "<br>";
 pusher = pusher + "Temperature: " + (Math.floor(data.main.temp)).toString() + "<br>";
 pusher = pusher + "Humidity: " + data.main.humidity+ "<br>";
-pusher = pusher + "Wind Speeds (mph): " + (Math.floor(data.wind.speed)).toString();
 let x = "curwe"
 document.getElementById(x).innerHTML = pusher;
 let icon = data.weather[0].icon; 
 x = x + "pic";
+icon = icon.toString(); 
+icon = icon.substring(0, 2) + "d";
 document.getElementById(x).src = icon + ".png";
 }
 

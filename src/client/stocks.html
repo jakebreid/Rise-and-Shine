@@ -162,10 +162,12 @@
             }
         })
     }
+    let newStocks = "";
     db2.get("saved_stocks").then(function(doc)
     {
         let count = doc.savedstocks.length
         let stock_count = 1;
+        let newCount = 0;
         if(count <= 3){
             for(stock_string in doc.savedstocks){
                 fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock_string}&apikey=ACTOFPC30X4LD71D`)
@@ -183,7 +185,8 @@
                 stock_count++;
             }
             while(stock_count < 4){
-                fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${featured_stocks[stock_count-1]}&apikey=ACTOFPC30X4LD71D`)
+                newCount = stock_count - 1;
+                fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${featured_stocks[newCount]}&apikey=ACTOFPC30X4LD71D`)
                 .then(response => response.json())
                 .then(res => {
                     let date = res["Meta Data"]["3. Last Refreshed"];
@@ -201,14 +204,14 @@
         }
     }).catch(function () {
     function askStocks() {
-     newStocks = prompt("What three stocks would you like to have saved?\nPlease Enter up to 3 Stock symbols, separated by spaces:", ""); //prompts the user to input name if its first time
+    newStocks = prompt("What three stocks would you like to have saved?\nPlease Enter up to 3 Stock symbols, separated by spaces:", ""); //prompts the user to input name if its first time
      if (newStocks !== null && newStocks !== "")
      {
         while(newStocks.indexOf(" ") > -1){
             stock_array1.push(newStocks.substring(0, newStocks.indexOf(" ")));
             newStocks = newStocks.substring(newStocks.indexOf(" ") + 1);
         }
-        db.put({_id: "saved_stocks", savedstocks: stock_array1});
+        db2.put({_id: "saved_stocks", savedstocks: stock_array1});
      }
      else
      {
@@ -218,37 +221,38 @@
     askStocks();
     let count = stock_array1.length
     let stock_count = 1;
+    let newCount = 0;
     if(count <= 3){
-        for(stock_string in stock_array1){
-            fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock_string}&apikey=ACTOFPC30X4LD71D`)
-            .then(response => response.json())
-            .then(res => {
-                let date = res["Meta Data"]["3. Last Refreshed"];
-                document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:US Exchange <br><br><br> Stock:${res["Meta Data"]["2. Symbol"]} <br><br><br> Price:${res["Time Series (Daily)"][date]["1. open"]} <br><br><br> Volume:${res["Time Series (Daily)"][date]["6. volume"]} <br><br><br> Time:${date} <br><br><br>`;
-                if(Math.abs(res["Time Series (Daily)"][date]["1. open"]-res["Time Series (Daily)"][date]["2. high"])>=Math.abs(res["Time Series (Daily)"][date]["1. open"]-res["Time Series (Daily)"][date]["3. low"])){
-                    document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "green";
-                }
-                else{
-                    document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "red";
-                }
-            })
-            stock_count++;
-        }
-        while(stock_count < 4){
-            fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${featured_stocks[stock_count-1]}&apikey=ACTOFPC30X4LD71D`)
-            .then(response => response.json())
-            .then(res => {
-                let date = res["Meta Data"]["3. Last Refreshed"];
-                document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:US Exchange <br><br><br> Stock:${res["Meta Data"]["2. Symbol"]} <br><br><br> Price:${res["Time Series (Daily)"][date]["1. open"]} <br><br><br> Volume:${res["Time Series (Daily)"][date]["6. volume"]} <br><br><br> Time:${date} <br><br><br>`;
-                if(Math.abs(res["Time Series (Daily)"][date]["1. open"]-res["Time Series (Daily)"][date]["2. high"])>=Math.abs(res["Time Series (Daily)"][date]["1. open"]-res["Time Series (Daily)"][date]["3. low"])){
-                    document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "green";
-                }
-                else{
-                    document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "red";
-                }
-            })
-            stock_count++;
+    for(stock_string in stock_array1){
+        fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock_string}&apikey=ACTOFPC30X4LD71D`)
+        .then(response => response.json())
+        .then(res => {
+            let date = res["Meta Data"]["3. Last Refreshed"];
+            document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:US Exchange <br><br><br> Stock:${res["Meta Data"]["2. Symbol"]} <br><br><br> Price:${res["Time Series (Daily)"][date]["1. open"]} <br><br><br> Volume:${res["Time Series (Daily)"][date]["6. volume"]} <br><br><br> Time:${date} <br><br><br>`;
+            if(Math.abs(res["Time Series (Daily)"][date]["1. open"]-res["Time Series (Daily)"][date]["2. high"])>=Math.abs(res["Time Series (Daily)"][date]["1. open"]-res["Time Series (Daily)"][date]["3. low"])){
+                document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "green";
             }
+            else{
+                document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "red";
+            }
+        })
+        stock_count++;
+    }}
+    while(stock_count < 4){
+        newCount = stock_count-1
+        fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${featured_stocks[newCount]}&apikey=ACTOFPC30X4LD71D`)
+        .then(response => response.json())
+        .then(res => {
+            let date = res["Meta Data"]["3. Last Refreshed"];
+            document.getElementById(`saved_stock${stock_count}`).innerHTML = `Market:US Exchange <br><br><br> Stock:${res["Meta Data"]["2. Symbol"]} <br><br><br> Price:${res["Time Series (Daily)"][date]["1. open"]} <br><br><br> Volume:${res["Time Series (Daily)"][date]["6. volume"]} <br><br><br> Time:${date} <br><br><br>`;
+            if(Math.abs(res["Time Series (Daily)"][date]["1. open"]-res["Time Series (Daily)"][date]["2. high"])>=Math.abs(res["Time Series (Daily)"][date]["1. open"]-res["Time Series (Daily)"][date]["3. low"])){
+                document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "green";
+            }
+            else{
+                document.getElementById(`saved_stock${stock_count}`).style.backgroundColor = "red";
+            }
+        })
+        stock_count++;
         }
     });
     function addStockFromFeatured(number){
