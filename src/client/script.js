@@ -26,19 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
  
 });
 
-/**
- * Get location data with user permission
- * @param {*} position 
- */
-const successCallback = (position) => {
-  console.log(position);
-};
 
-const errorCallback = (error) => {
-  console.log(error);
-};
-
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 //LINDSEY WORKSPACE HERE 
 //JAKE CODE BELOW
 

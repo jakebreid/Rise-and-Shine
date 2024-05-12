@@ -125,9 +125,19 @@ for (let i = 0; i < 5; i++)
   let x = i.toString() + "w";
   document.getElementById(x).innerHTML = daysOfWeek[j];
 }
-fetch("https://api.openweathermap.org/data/2.5/forecast?lat=42.3&lon=-72.5&units=imperial&appid=d9abbcf6d13c2409cc9a607c94b99edc")
-.then(response => response.json())
-.then(res => weatherHandler(res));
+async function successCallback(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=d9abbcf6d13c2409cc9a607c94b99edc`);
+  let result = await response.json();
+  weatherHandler(result);
+};
+
+const errorCallback = (error) => {
+  console.log(error);
+};
+
+navigator.geolocation.watchPosition(successCallback, errorCallback);
 </script>
 <div class="grid-container-w">
     <div class="grid-item-w"><center class = "day-label" id = 0w>Sunday</center><center><img src = "myWeather.png" class = "myPicW" id = "we0pic"></center><center><label id = "we0" class = "weText">Weather info here</label></center></div>
