@@ -70,9 +70,9 @@ async function deleteName(response, name) {
   try {
     let name = await db.getName(name);
     response.writeHead(200, headerFields);
-    response.write(`<h1>Name ${counter._id} Deleted</h1>`);
+    response.write(`<h1>Name Deleted</h1>`);
     response.end();
-    db.removeName("username");
+    await db.removeName("username");
   } catch (err) {
     response.writeHead(404, headerFields);
     response.write(`<h1>Name ${name} Not Found</h1>`);
