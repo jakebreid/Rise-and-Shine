@@ -22,18 +22,18 @@ app.use('/static', express.static('../client'))
 async function createName(response, name) {
   if (name === undefined) {
     response.writeHead(400, headerFields);
-    response.write("<h1>Counter Name Required</h1>");
+    response.write("<h1>Name Required</h1>");
     response.end();
   } else {
     try {
       await db.saveName("username", name);
       response.writeHead(200, headerFields);
-      response.write(`<h1>Counter ${name} Created</h1>`);
+      response.write(`<h1>Name "${name}" Created</h1>`);
       response.end();
     } catch (err) {
       console.log("ouch!")
       response.writeHead(500, headerFields);
-      response.write("<h1>Internal Server Errorrrrr</h1>");
+      response.write("<h1>Internal Server Error</h1>");
       response.write("<p>Unable to create counter</p>");
       response.write(`<p>This is likely a duplicate name!</p>`);
       response.end();
