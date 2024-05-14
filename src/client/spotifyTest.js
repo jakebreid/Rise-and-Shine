@@ -359,7 +359,7 @@ async function updateRandomAlbum(artistOptions) {
     //these statements below update various details of the album so they can be updated in HTML and displayed correctly 
     const albumName = randomAlbum.name; 
     const artistOfAlbum= randomAlbum.artist; 
-    const albumId = randomAlbum.albumId; 
+    const albumId = randomAlbum.albumId; //hi
     const albumLink = document.getElementById("albumLink");  
     albumLink.href = randomAlbum.link; 
     //now, we are debugging, catching errors, sending messages to the console to check the functionality of fetching a random album, and then displaying the random album on the page

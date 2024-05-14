@@ -1,5 +1,5 @@
 import PouchDB from "pouchdb";
-const db = new PouchDB("mydatabase9006");
+const db = new PouchDB("mainDB");
 
 export async function saveName(myId, name)
 {
@@ -27,12 +27,9 @@ export async function getName(name)
 }
 
 export async function removeName(name) {
-    try {
-        var doc = await db.get("username");
-        var response = await db.remove(doc);
-      } catch (err) {
-        console.log(err);
-      }
+  db.get(name).then(function (doc) {
+    return db.remove(doc);
+  });
   }
 
   
