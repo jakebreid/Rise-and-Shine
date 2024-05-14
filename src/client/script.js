@@ -56,7 +56,7 @@ async function successCallback(position) {
 };
 
 const errorCallback = (error) => {
-  console.log(error);
+  console.log(error, "Unable to access location data");
 };
 
 navigator.geolocation.watchPosition(successCallback, errorCallback);
