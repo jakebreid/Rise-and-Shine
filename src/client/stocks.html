@@ -186,6 +186,9 @@
                 document.getElementById(`newStock1`).style.backgroundColor = "red";
             }
         })
+        .catch(e => {
+            document.getElementById("newStock1").innerHTML = "Please enter a valid stock."
+        })
     }
     function addNewStock(){
         if(document.getElementById("newStock1").innerHTML != "Market: <br><br><br>Stock: <br><br><br>Price: <br><br><br>Volume: <br><br><br>Time: <br><br><br>"){
